@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anil Madhok — Field notes on Copilot, Cowork and agents</title>
+<meta name="description" content="Solution Engineer at Microsoft. Notes from deploying Microsoft 365 Copilot, Cowork, Microsoft Scout and Copilot Studio in real tenants — what worked, what broke, and what the demo didn't tell you." />
+<meta name="author" content="Anil Madhok" />
+<meta name="theme-color" content="#f4f2ec" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Anil Madhok — Field notes on Copilot, Cowork and agents" />
+<meta property="og:description" content="Notes from deploying Microsoft 365 Copilot, Cowork, Microsoft Scout and Copilot Studio in real tenants." />
+
+<script>
+  // Set theme before first paint to avoid a flash.
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var dark = saved ? saved === "dark"
+        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+    document.documentElement.classList.add("js");
+  })();
+</script>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23151a21'/%3E%3Cpath d='M8 23 L16 9 L24 23' stroke='%23e8613c' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="brand-txt">
+        <strong>Anil Madhok</strong>
+        <small>Solution Engineer · Microsoft</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#notes">Field notes</a>
+      <a href="#posts">Posts</a>
+      <a href="#builds">Builds</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <button id="theme" class="theme-btn" type="button" aria-label="Switch colour theme">
+      <span class="theme-ico" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Microsoft 365 Copilot · Cowork · Scout · Copilot Studio</p>
+
+        <h1>What actually happens<br /><em>after you turn it on.</em></h1>
+
+        <p class="lede">
+          I'm a Solution Engineer at Microsoft. I put Copilot and agents into real tenants,
+          then write down the part that isn't in the deck — what worked, what broke, and
+          what the demo quietly skipped.
+        </p>
+
+        <p class="sub">
+          Less strategy, more telemetry. Most of what's here started as an escalation, a
+          rollout that stalled, or a number that didn't reconcile.
+        </p>
+
+        <div class="cta">
+          <a class="btn btn-1" href="#notes">Read the field notes</a>
+          <a class="btn btn-2" href="#posts">Latest posts</a>
+        </div>
+
+        <ul class="facts">
+          <li><span>Tenant-first</span>Every note comes from a live deployment</li>
+          <li><span>Evidence-led</span>Audit logs over adoption slideware</li>
+          <li><span>Governed</span>Purview, Agent 365, identity and lifecycle</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <figure class="portrait">
+          <img id="portrait-img" src="assets/anil.jpg" alt="Anil Madhok" />
+          <div class="portrait-fallback" aria-hidden="true"><span>AM</span></div>
+        </figure>
+        <div class="card-note">
+          <span class="kicker">Currently</span>
+          <strong>Deploy. Measure. Govern.</strong>
+          <p>Helping enterprise teams get from a good demo to something that survives an audit.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ── FIELD NOTES ────────────────────────────────────────── -->
+  <section class="sec" id="notes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Field notes</p>
+          <h2>The things I keep having to say twice.</h2>
+        </div>
+        <p class="sec-side">
+          Short, opinionated observations from deployments. No customer names, no tenant
+          specifics — just the patterns that repeat.
+        </p>
+      </div>
+
+      <div class="chips" id="note-chips" role="group" aria-label="Filter field notes"></div>
+      <div class="notes" id="note-grid"></div>
+      <p class="empty" id="note-empty" hidden>No notes in that category yet.</p>
+    </div>
+  </section>
+
+  <!-- ── POSTS ──────────────────────────────────────────────── -->
+  <section class="sec sec-alt" id="posts">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">From LinkedIn</p>
+          <h2>Written in public.</h2>
+        </div>
+        <p class="sec-side">
+          Posts about rollout reality, agent governance and the gap between a capability
+          and a habit. <a id="follow-inline" href="#" target="_blank" rel="noopener">Follow along →</a>
+        </p>
+      </div>
+
+      <div class="chips" id="post-chips" role="group" aria-label="Filter posts"></div>
+      <div class="posts" id="post-grid"></div>
+      <p class="empty" id="post-empty" hidden>No posts in that category yet.</p>
+    </div>
+  </section>
+
+  <!-- ── BUILDS ─────────────────────────────────────────────── -->
+  <section class="sec" id="builds">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Builds</p>
+          <h2>Opinions are cheaper than working software.</h2>
+        </div>
+        <p class="sec-side">
+          Things I've actually shipped. Each one exists because a customer question
+          couldn't be answered with a slide.
+        </p>
+      </div>
+
+      <div class="builds" id="build-grid"></div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────── -->
+  <section class="sec sec-alt" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="kicker">About</p>
+        <h2>I'd rather show you than tell you.</h2>
+        <p>
+          I work in AI Business Solutions at Microsoft, helping enterprise customers move
+          Copilot and agents from an impressive demo to something that runs every day and
+          holds up under scrutiny.
+        </p>
+        <p>
+          In practice that means a lot of time in tenants: reconciling usage data, untangling
+          permissions, choosing between a declarative agent and a custom engine, and building
+          the reporting that lets a governance team say yes.
+        </p>
+        <p>
+          I write here because most of what's genuinely useful about this technology is
+          learned on the second or third deployment, not the first.
+        </p>
+      </div>
+
+      <div class="focus">
+        <span class="kicker">What I work on</span>
+        <ul>
+          <li><strong>Microsoft 365 Copilot</strong>Rollout, grounding quality, adoption measurement</li>
+          <li><strong>Cowork</strong>Agentic work sessions and the review problem they create</li>
+          <li><strong>Microsoft Scout</strong>Desktop agents, skills and unattended automation</li>
+          <li><strong>Copilot Studio</strong>Surface selection, knowledge boundaries, orchestration</li>
+          <li><strong>Agent 365 &amp; Purview</strong>Agent identity, lifecycle, supervision, AI posture</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <strong>Anil Madhok</strong>
+      <p>Solution Engineer, AI Business Solutions · Microsoft</p>
+    </div>
+    <div class="ftr-links">
+      <a id="follow-footer" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#notes">Field notes</a>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+  <div class="wrap ftr-fine">
+    <p>Views are my own and do not represent Microsoft. Nothing here contains customer or tenant-specific information.</p>
+  </div>
+</footer>
+
+<script src="data/notes.js"></script>
+<script src="data/posts.js"></script>
+<script src="data/builds.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
