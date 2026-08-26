@@ -1,123 +1,158 @@
 # anil-site
 
-A small, fast personal site: field notes and LinkedIn posts about deploying
+An exec-grade interactive deck: field notes and LinkedIn posts on deploying
 Microsoft 365 Copilot, Cowork, Microsoft Scout, Copilot Studio and Agent 365.
 
-Plain HTML, CSS and JavaScript. **No build step, no dependencies, no npm.**
-Open `index.html` directly, or serve the folder — both work.
+Fixed-viewport slides, Fluent 2 styling, a live three.js atmosphere layer, and
+modal deep-dives. **No build step, no npm, no CDN.** Open `index.html` directly
+or serve the folder — both work.
 
 ---
 
-## Adding a LinkedIn post (the main thing you'll do)
+## Design principles
 
-1. Open the post on LinkedIn → **…** menu → **Copy link**.
-2. Open `data/posts.js`.
-3. Copy an existing block and paste it at the **top** of the array.
-4. Fill in the fields, save, refresh the browser.
+1. **It's a deck, not a page with slides.** `100vh`, `overflow:hidden`, one idea
+   per slide. If content doesn't fit, it goes in a modal — never a scrollbar.
+2. **Home is a control center.** Slide 0 is the map. Every card is a preview and
+   a launch point.
+3. **Breadth on slides, depth in modals.** This is what makes 100vh honest.
+4. **three.js is atmosphere, never furniture.** One persistent canvas. It holds
+   no information and is entirely disposable.
+5. **Fluent 2, properly.** Segoe UI Variable ramp, elevation tokens, acrylic
+   layering, 4px grid, Fluent motion curves.
+6. **One signature hue per scene**, driving both DOM accent and 3D scene.
+7. **Procedural imagery.** No stock photography, no licensing exposure.
+8. **Three navigation paths**, plus swipe. No scroll-jacking, no hamburger.
+9. **Motion has an off-switch.** `prefers-reduced-motion` is fully honoured.
+10. **Degrades, never collapses.** No WebGL → CSS gradients. Phone → readable stack.
+
+---
+
+## Editing content
+
+Everything on screen comes from `data/content.js`. You never touch markup.
+
+### Add a LinkedIn post
+
+Open the `posts` slide in `data/content.js`, copy a card block, paste at the top:
 
 ```js
 {
-  date: "2026-08-18",                       // YYYY-MM-DD, drives sort order
-  hook: "One strong line — the headline.",
-  excerpt: "Two to four sentences from the post.",
-  tags: ["M365 Copilot", "Governance"],     // become filter chips automatically
-  url: "https://www.linkedin.com/posts/...",
-  featured: true,                            // optional — pins ONE post, spans 2 columns
+  meta:   "18 Aug 2026",
+  title:  "The headline",
+  teaser: "One or two lines shown on the card face.",
+  body:   ["Paragraph one.", "Paragraph two."],   // shown in the modal
+  tags:   ["M365 Copilot", "Governance"],
+  link:   { href: "https://www.linkedin.com/posts/...", label: "Read on LinkedIn" },
 },
 ```
 
-Set your profile URL once, at the top of the same file:
+Leave `href` empty and the card shows *"Link coming soon"* rather than a dead link.
+
+Set your profile URL once, at the top of the file:
 
 ```js
-window.LINKEDIN_PROFILE = "https://www.linkedin.com/in/your-handle/";
+profile: { ..., linkedin: "https://www.linkedin.com/in/your-handle/" }
 ```
 
-Until a post has a real `url`, the card shows *"Link coming soon"* instead of a dead link.
+### Add a field note
 
-## Adding a field note
+Same card shape, on whichever product slide it belongs to. Add `takeaway:` for
+the highlighted "So what" panel at the bottom of the modal.
 
-Same idea, in `data/notes.js`:
+### Add a slide
+
+Append to the `slides` array:
 
 ```js
 {
-  product: "Cowork",                 // becomes a filter chip automatically
-  date: "2026-08",                   // YYYY-MM or YYYY-MM-DD
-  title: "The headline observation",
-  body: "Two to four sentences of what you actually saw.",
-  takeaway: "The 'so what' line at the bottom of the card.",
-},
+  id: "newthing",        // used for #hash deep links
+  kind: "cards",         // home | statement | cards | connect
+  label: "New thing",    // progress-dot tooltip
+  hue: 96,               // 0-360, drives DOM accent AND the 3D scene colour
+  scene: "helix",        // sphere | grid | helix | wave | ring | scatter
+  kicker: "Field notes",
+  title: "Headline",
+  lede: "Supporting line.",
+  cards: [ /* ... */ ],
+}
 ```
 
-## Adding a build
+Dots, counter, keyboard jumps and hue transitions all pick it up automatically.
 
-`data/builds.js` — `name`, `kind`, `body`, `stack: []`.
-
-New tags and products create their own filter chips. You never edit HTML.
-
----
-
-## Your photo
-
-Drop a square-ish JPG at `assets/anil.jpg` (600×600 or larger).
-If the file is missing the hero falls back to a monogram tile — nothing breaks.
+**Keep 2–3 cards per `cards` slide** (5–6 max on `home`). That's what keeps every
+slide inside one viewport.
 
 ---
 
-## Running it locally
+## Navigation
+
+| Input | Action |
+|---|---|
+| `→` `↓` `PageDown` `Space` | Next slide |
+| `←` `↑` `PageUp` | Previous slide |
+| `Home` / `End` | First / last |
+| `1`–`9`, `0` | Jump to slide |
+| `Esc` | Close modal |
+| Swipe | Next / previous (touch) |
+| Progress dots, arrows | Click |
+
+`PageUp`/`PageDown` means presenter remotes work.
+
+---
+
+## Running it
 
 ```powershell
-# simplest — just double-click index.html, or:
-python -m http.server 8099
-# then open http://localhost:8099
+python -m http.server 8099   # then open http://localhost:8099
 ```
 
 ## Deploying
 
 ### GitHub Pages
-
 ```powershell
-git init
-git add -A
-git commit -m "Personal site"
 gh repo create anil-site --public --source=. --push
 gh api -X POST repos/:owner/anil-site/pages -f "source[branch]=main" -f "source[path]=/"
 ```
 
-Live at `https://<user>.github.io/anil-site/` in a minute or two.
-For a custom domain, add a `CNAME` file containing the domain and point a
-`CNAME` DNS record at `<user>.github.io`.
-
 ### Azure Static Web Apps
-
 ```powershell
 az staticwebapp create -n anil-site -g <resource-group> -l westeurope `
   --source https://github.com/<user>/anil-site --branch main `
   --app-location "/" --output-location "/" --login-with-github
 ```
 
-No build command needed — it's already static.
+No build command — it's already static.
 
 ---
 
 ## Structure
 
 ```
-index.html        markup and section copy
-styles.css        design system (light + dark, one accent, system fonts only)
-app.js            filters, theme toggle, scroll reveal
-data/notes.js     field notes
-data/posts.js     LinkedIn posts + profile URL
-data/builds.js    things shipped
-assets/anil.jpg   hero portrait (optional)
+index.html              deck shell (slides are generated, not authored)
+css/deck.css            Fluent 2 tokens, slide layouts, modal, stack fallback
+js/scene.js             three.js atmosphere — particles, formations, transitions
+js/deck.js              navigation, modals, focus management, layout mode
+data/content.js         ALL content
+vendor/three.min.js     three.js r160.1, vendored
 ```
 
-Data lives in `.js` files rather than `.json` on purpose — it means the site
-works when opened straight from disk, with no local server and no CORS errors.
+## Implementation notes
 
-## Notes
+- **Classic scripts, not ES modules**, so the deck also runs from `file://`.
+  three.js r160.1 is the last version shipping a UMD build; it logs a
+  deprecation warning on load, which is inert here because the file is
+  vendored and pinned. Moving to ES modules would silence it but would
+  require a server for local viewing.
+- **Particle formations** are precomputed once, then eased per frame toward the
+  active slide's target. Hue lerps along the shortest path around the wheel.
+- **Stack mode** engages below 720px wide or 480px tall: WebGL off, slides
+  become scrollable sections, dots follow scroll position.
+- **Modals** trap Tab, close on `Esc` or scrim click, and restore focus to the
+  card that opened them.
+- Verified with zero slide overflow at 1440×900, 1366×768 and 1280×620.
 
-- Light/dark toggle persists in `localStorage`; defaults to the OS preference.
-- Scroll reveal is gated behind a `.js` class, so content is still visible if
-  scripts fail to load. It's disabled under `prefers-reduced-motion`.
-- No webfonts, no analytics, no third-party requests.
-- **Keep it public-safe**: no customer names, no tenant specifics, no internal data.
+## Content safety
+
+Public site. No customer names, no tenant specifics, no internal data.
+Keep it that way when adding notes.
