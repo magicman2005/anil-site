@@ -1,88 +1,100 @@
 # Deploying
 
+**Live at: https://magicman2005.github.io/anil-site/**
+
+Published from `magicman2005/anil-site`, branch `main`, root. GitHub Pages
+rebuilds on every push — there is no build step, so what you commit is what ships.
+
 The site is fully static and self-contained. It works from `file://` with no
-server at all, which means any static host will serve it correctly. There is no
-build step — what's in this folder is what ships.
-
-Target domain: **anil.madhok.uk** (set in `CNAME`).
+server at all, which means any static host will serve it correctly.
 
 ---
 
-## Before you start
+## Switching to anil.madhok.uk
 
-Two things to confirm:
+The custom domain is **parked, not active**. As of 27 Aug 2026 `madhok.uk`
+returns NXDOMAIN from `dns1.nic.uk` and 404 from Nominet's RDAP — it does not
+resolve, so Pages would serve nothing if the `CNAME` file were live. The file is
+kept as `CNAME.pending`.
 
-1. **The domain is registered.** As of 27 Aug 2026, Nominet's RDAP returns 404
-   for `madhok.uk` and `dns1.nic.uk` returns an authoritative NXDOMAIN. If you
-   registered it very recently that's just propagation lag — but check, because
-   nothing below works until the domain resolves. Change `CNAME` if it differs.
+GitHub Pages serves at **either** the default URL **or** the custom domain, not
+both — a live `CNAME` redirects the `github.io` address. So do this only once
+the domain actually resolves:
 
-   and **cannot create public repositories** — `gh repo create --public` fails
-   the enterprise, so that route cannot host a public personal site.
+1. **Register `madhok.uk`** and confirm it resolves:
+   ```powershell
+   Invoke-RestMethod "https://dns.google/resolve?name=madhok.uk&type=NS"
+   ```
+   Status `0` (NOERROR) means live. `3` is NXDOMAIN — not ready.
 
-   This is a personal site on a personal domain containing personal posts, so
-   personal infrastructure is also the right call on its own merits.
+2. **Add the DNS record** at your registrar:
+
+   | Type | Name | Value |
+   |---|---|---|
+   | CNAME | `anil` | `magicman2005.github.io` |
+
+3. **Activate the file and flip the URLs:**
+   ```powershell
+   Move-Item CNAME.pending CNAME
+
+   # six absolute URLs in index.html: canonical, og:url, og:image,
+   # twitter:image, and the JSON-LD url + image
+   (Get-Content index.html -Raw) `
+     -replace 'https://magicman2005\.github\.io/anil-site/', 'https://anil.madhok.uk/' `
+     | Set-Content index.html -NoNewline
+
+   # the footer of the social card
+   (Get-Content tools/og.html -Raw) `
+     -replace 'magicman2005\.github\.io/anil-site', 'anil.madhok.uk' `
+     | Set-Content tools/og.html -NoNewline
+
+   node tools/build-og.js
+   git add -A; git commit -m "Switch to anil.madhok.uk"; git push
+   ```
+
+4. **Tick Enforce HTTPS** in Settings → Pages once the certificate provisions
+   (usually a few minutes).
+
+`anil.madhok.uk` is a subdomain, so a `CNAME` record is correct — you do not
+need the apex `A` records a root domain would require.
 
 ---
 
-## Option A — Cloudflare Pages (recommended)
-
-No GitHub account needed, free, fast UK edge, and handles DNS for `.uk` in the
-same place.
-
-1. Register `madhok.uk` if you haven't, and point its nameservers at Cloudflare.
-2. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** →
-   **Upload assets**.
-3. Drag this whole folder in. No build command, no output directory.
-4. **Custom domains** → add `anil.madhok.uk`. Cloudflare writes the DNS record
-   itself and provisions TLS.
-
-Updating later is another drag-and-drop, or connect a Git repo once you have one.
-
-## Option B — GitHub Pages from a personal account
+## Publishing an update
 
 ```powershell
-git remote add origin https://github.com/<personal-account>/anil-site.git
-git push -u origin master
+git add -A
+git commit -m "..."
+git push
 ```
 
-Then **Settings → Pages → Source: Deploy from a branch → master / (root)**.
-The `CNAME` file already in this folder tells Pages the custom domain, so you
-only need the DNS side:
-
-```
-CNAME   anil   <personal-account>.github.io
-```
-
-Tick **Enforce HTTPS** once the certificate provisions (a few minutes).
-
-## Option C — Azure Static Web Apps
-
-Sensible if you'd rather keep it in Azure. Use a **personal** subscription, not
-a Microsoft-managed one — this is personal content.
+Live in a minute or two. Check the build with:
 
 ```powershell
-az staticwebapp create -n anil-site -g <resource-group> -l westeurope
-# then upload via the SWA CLI or connect a repo
-az staticwebapp hostname set -n anil-site --hostname anil.madhok.uk
+gh api repos/magicman2005/anil-site/pages/builds/latest --jq '.status'
 ```
 
----
+## Two GitHub accounts on this machine
 
-## DNS, whichever route
+This repo needs the personal one:
 
-`anil.madhok.uk` is a subdomain, so a `CNAME` record is correct — you don't need
-the apex `A` records that a root domain would require.
+```powershell
+gh auth switch --user magicman2005     # before working on this site
+```
 
-| Type | Name | Value |
-|---|---|---|
-| CNAME | `anil` | your host's target (e.g. `<account>.github.io`) |
+Git pushes use `gh` as the credential helper, so whichever account is active is
+the one that pushes. If a push 403s, check `gh auth status` first.
+
+**The work account cannot host this site.** Tested 27 Aug 2026: public repos are
+returns `HTTP 422 — your current plan does not support GitHub Pages for this
+repository`. Both routes are closed, which is why this lives on a personal account.
 
 ## After it's live
 
 - **Check the unfurl.** Paste the URL into LinkedIn's Post Inspector
   (`linkedin.com/post-inspector`) to confirm `assets/og.jpg` renders and to
-  prime LinkedIn's cache. Teams and Slack pick up the same tags.
+  prime LinkedIn's cache. Teams and Slack read the same tags.
   on the profile. This site is the obvious thing to put there.
-- **Regenerate the OG card** whenever the headline or portrait changes:
+- **Regenerate the OG card** whenever the headline, portrait or URL changes:
   `node tools/build-og.js`.
+
