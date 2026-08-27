@@ -90,8 +90,8 @@ window.Atmosphere = (function () {
   }
 
   /* The word "Copilot", sampled from rendered type into the point cloud.
-     Home only. Sits low in the frame because the headline and card grid
-     occupy the middle band — centred, the word is almost entirely hidden. */
+     Home only. Centred, so the headline and card grid sit over it — it reads
+     as background texture rather than a legible standalone word. */
   function fWord(a) {
     var WORD = "Copilot";
     var W = 1024, H = 256;
@@ -122,7 +122,7 @@ window.Atmosphere = (function () {
     }
     if (!pts.length) { fSphere(a); return; }
 
-    var SPAN = 64, LIFT = -13.5;
+    var SPAN = 64, LIFT = 0;
     for (var i = 0; i < N; i++) {
       var p = pts[(Math.random() * pts.length) | 0];
       a[i * 3]     = ((p[0] + (Math.random() - .5) * 2) / W - 0.5) * SPAN;
@@ -148,7 +148,7 @@ window.Atmosphere = (function () {
     wave:    { x: 0,   y: 13,  z: 40 },
     ring:    { x: 0,   y: 11,  z: 44 },
     scatter: { x: 0,   y: 0,   z: 48 },
-    word:    { x: 0,   y: -8,  z: 46 },
+    word:    { x: 0,   y: 0,   z: 46 },
   };
 
   /* ---------- soft round sprite so points aren't squares ---------- */
