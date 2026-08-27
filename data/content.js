@@ -130,7 +130,7 @@ window.DECK = {
       scene: "grid",
       kicker: "Field notes",
       title: "Microsoft 365 Copilot",
-      lede: "Three things I keep having to say twice.",
+      lede: "Three things I keep having to say twice — and the ten-part series.",
       cards: [
         {
           meta: "Aug 2026",
@@ -176,6 +176,35 @@ window.DECK = {
           takeaway: "Pick three recurring rituals per team and make Copilot the default way to do them. Breadth later.",
           tags: ["Adoption", "Change"],
         },
+        {
+          meta: "Jul 2026 · series · 10 parts",
+          title: "The M365 Copilot series",
+          teaser: "Ten parts, one surface at a time — from Chat, to agents, to the job that runs itself.",
+          body: [
+            "A ten-part run through Microsoft 365 Copilot published across two weeks in July 2026, taking one " +
+            "surface per post rather than trying to explain the whole product at once.",
+            "It starts where people actually start — Chat, then the Office apps, then Teams and Outlook — and " +
+            "only then moves to agents, connectors, Researcher and Analyst, and finally to work that runs " +
+            "without you. Each part is a carousel; the captions are deliberately short.",
+            "The series was also the subject of its own retrospective: I had an agent research, draft, design " +
+            "and report on the whole thing, then wrote up what it did well and where I still had to do the work.",
+          ],
+          parts: [
+            { label: "The one you ask before you've had your coffee — Copilot Chat", href: "https://www.linkedin.com/feed/update/urn:li:activity:7479791425010941952/" },
+            { label: "The trio that gets you through deadline day — Word, Excel & PowerPoint", href: "https://www.linkedin.com/feed/update/urn:li:activity:7480153666620948480/" },
+            { label: "The one who reads the group chat so you don't have to — Teams & Outlook", href: "https://www.linkedin.com/feed/update/urn:li:activity:7480516281616543744/" },
+            { label: "Knowing which kind of help you actually need — Copilot Agents", href: "https://www.linkedin.com/feed/update/urn:li:activity:7480879004640681984/" },
+            { label: "The one you hand the whole job to before you clock off — Copilot Cowork", href: "https://www.linkedin.com/feed/update/urn:li:activity:7481240919409778688/" },
+            { label: "Build your own agent", href: "https://www.linkedin.com/feed/update/urn:li:activity:7482329445853384704/" },
+            { label: "Copilot connectors", href: "https://www.linkedin.com/feed/update/urn:li:activity:7482705701908250625/" },
+            { label: "Researcher & Analyst", href: "https://www.linkedin.com/feed/update/urn:li:activity:7483068058799001601/" },
+            { label: "Meeting intelligence, before, during and after", href: "https://www.linkedin.com/feed/update/urn:li:activity:7483430379069091840/" },
+            { label: "The job that runs itself", href: "https://www.linkedin.com/feed/update/urn:li:activity:7483792704661827584/" },
+          ],
+          tags: ["M365 Copilot", "Series"],
+          stat: "3,091 impressions · 56 reactions across the ten",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7479791425010941952/", label: "Start at part one" },
+        },
       ],
     },
 
@@ -188,7 +217,7 @@ window.DECK = {
       scene: "helix",
       kicker: "Field notes",
       title: "Cowork",
-      lede: "What changes when the output is a folder, not an answer.",
+      lede: "What changes when the output is a folder, not an answer — plus the five-day deep dive.",
       cards: [
         {
           meta: "Aug 2026",
@@ -215,6 +244,28 @@ window.DECK = {
           ],
           takeaway: "Add a librarian step on day one: one page indexing what was produced, when, and why it exists.",
           tags: ["Knowledge", "Practice"],
+        },
+        {
+          meta: "Aug 2026 · series · 5 parts",
+          title: "Cowork Deep Dive",
+          teaser: "Five days, five capabilities — the big idea, a real example, staying in control, picking a model, and how it learns your business.",
+          body: [
+            "A five-part run through Cowork published daily across a week in August 2026, built around the " +
+            "capability that matters most: actually finishing the job rather than producing another draft.",
+            "Day two is a real multi-step example start to finish. Day three is about staying in control, which " +
+            "is consistently the question customers raise first. Day four covers choosing the model behind the " +
+            "work, and day five closes on how Cowork learns your business rather than defaulting to its own.",
+          ],
+          parts: [
+            { label: "Day 1 — The big idea: actually finishing the job", href: "https://www.linkedin.com/feed/update/urn:li:activity:7492618301785763840/" },
+            { label: "Day 2 — A real multi-step example, start to finish", href: "https://www.linkedin.com/feed/update/urn:li:activity:7492980674027655171/" },
+            { label: "Day 3 — Staying in control", href: "https://www.linkedin.com/feed/update/urn:li:activity:7493343063143141396/" },
+            { label: "Day 4 — Pick your model", href: "https://www.linkedin.com/feed/update/urn:li:activity:7493705465126625281/" },
+            { label: "Day 5 — How Cowork learns your business, not just its own defaults", href: "https://www.linkedin.com/feed/update/urn:li:activity:7494067837003681792/" },
+          ],
+          tags: ["Cowork", "Series"],
+          stat: "13 reactions across the five",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7492618301785763840/", label: "Start at day one" },
         },
       ],
     },
@@ -340,6 +391,26 @@ window.DECK = {
       --------------------------------------------------------------- */
       cards: [
         {
+          meta: "Aug 2026 · running now",
+          title: "Trust, Familiarity, Completeness",
+          teaser: "A live series on why AI lands better inside the tools people already have than as one more app.",
+          body: [
+            "A short series running right now, making the case for AI that lives where the work already happens " +
+            "rather than arriving as a separate destination.",
+            "Trust: the new colleague who already knows the rules. Familiarity: not one more app nobody " +
+            "remembers the password for. Completeness: find it, chat about it, get it done — same building.",
+            "It's the argument I end up making most often in customer conversations, and the one that tends to " +
+            "decide whether adoption is a rollout or a fight.",
+          ],
+          parts: [
+            { label: "Day 1 — Trust: the new colleague who already knows the rules", href: "https://www.linkedin.com/feed/update/urn:li:activity:7497918250232586240/" },
+            { label: "Day 2 — Familiarity: not one more app nobody remembers the password for", href: "https://www.linkedin.com/feed/update/urn:li:activity:7498280671464013824/" },
+            { label: "Day 3 — Completeness: find it, chat about it, get it done, same building", href: "https://www.linkedin.com/feed/update/urn:li:activity:7498643045840519168/" },
+          ],
+          tags: ["M365 Copilot", "Series"],
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7497918250232586240/", label: "Start at day one" },
+        },
+        {
           meta: "4 Aug 2026",
           title: "I asked an agent to run a two-week content series, start to finish",
           teaser: "Not 'AI writes your posts'. An honest split of what it did well and where I still had to do the work.",
@@ -381,22 +452,6 @@ window.DECK = {
           tags: ["Agent 365", "M365 Copilot"],
           stat: "90 reactions · 3 comments",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7433092328434712576/", label: "Read on LinkedIn" },
-        },
-        {
-          meta: "30 Jan 2026",
-          title: "Agents aren't features — they're a workforce",
-          teaser: "AI everywhere doesn't equal an AI platform. Without design you get patchwork agents and shadow AI.",
-          body: [
-            "Four points worth repeating: AI everywhere doesn't equal an AI platform. Without design, you get " +
-            "patchwork agents, accidental shadow AI and growing risk.",
-            "The shift we need is from impressive demos to durable, governable digital labour. Agents aren't " +
-            "features — they're a workforce. And workforces need identity, controls, intelligence and lifecycle " +
-            "management by design.",
-          ],
-          takeaway: "If you wouldn't give a new starter system access without identity and a leaver process, don't give an agent one either.",
-          tags: ["Governance", "Agent 365"],
-          stat: "7 reactions · 1 repost",
-          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7422951931943239680/", label: "Read on LinkedIn" },
         },
         {
           meta: "5 Jan 2026",

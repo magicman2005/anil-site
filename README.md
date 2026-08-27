@@ -69,6 +69,28 @@ To get a permalink: open the post on LinkedIn → **…** menu → **Copy link**
 Or note that LinkedIn activity IDs encode their own timestamp — `id >> 22n`
 gives milliseconds since epoch, which is how the dates here were derived.
 
+### Add a multi-part series
+
+Series get **one card**, not one card per part. Add a `parts` array and the modal
+renders a numbered, individually-linked list:
+
+```js
+{
+  meta:  "Jul 2026 · series · 10 parts",
+  title: "The M365 Copilot series",
+  teaser: "One line on what the series covers.",
+  body:  ["Why it exists.", "How it's structured."],
+  parts: [
+    { label: "Part title", href: "https://www.linkedin.com/feed/update/urn:li:activity:.../" },
+  ],
+  stat: "3,091 impressions · 56 reactions across the ten",
+  link: { href: "<first part>", label: "Start at part one" },
+}
+```
+
+Put a series on the slide it belongs to — the Cowork Deep Dive sits on the
+Cowork slide, not in Posts. That keeps Posts for standalone writing.
+
 ### Add a field note
 
 Same card shape, on whichever product slide it belongs to. Add `takeaway:` for

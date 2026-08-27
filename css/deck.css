@@ -237,6 +237,7 @@ button { font: inherit; color: inherit; }
 .cards { display: grid; gap: clamp(10px, 1.5vw, 18px); min-height: 0; }
 .cards[data-n="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .cards[data-n="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cards[data-n="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .cards[data-n="5"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .cards[data-n="6"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .slide[data-kind="home"] .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -488,6 +489,22 @@ button { font: inherit; color: inherit; }
   text-transform: uppercase; color: hsl(var(--m-hue, var(--hue)) 92% 72%); margin-bottom: 7px;
 }
 .modal-take span { font-size: var(--f-body); color: var(--fg-2); line-height: 1.55; }
+
+/* multi-part series listing */
+.parts { list-style: none; counter-reset: part; margin: 22px 0 0; padding: 0; }
+.parts li {
+  counter-increment: part;
+  display: flex; gap: 12px; align-items: baseline;
+  padding: 10px 0; border-top: 1px solid var(--stroke);
+}
+.parts li:first-child { border-top: 0; }
+.parts li::before {
+  content: counter(part, decimal-leading-zero);
+  font-family: var(--mono); font-size: var(--f-caption2); letter-spacing: .08em;
+  color: hsl(var(--m-hue, var(--hue)) 92% 68%); flex: none; min-width: 20px;
+}
+.parts a, .parts span { font-size: 14.5px; line-height: 1.45; color: var(--fg-2); text-decoration: none; }
+.parts a:hover { color: hsl(var(--m-hue, var(--hue)) 92% 74%); text-decoration: underline; }
 
 .modal-foot {
   padding: 16px clamp(22px, 3vw, 34px); border-top: 1px solid var(--stroke);

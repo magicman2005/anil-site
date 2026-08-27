@@ -180,6 +180,18 @@
     if (c.takeaway) {
       body += '<div class="modal-take"><b>So what</b><span>' + esc(c.takeaway) + "</span></div>";
     }
+
+    if (c.parts && c.parts.length) {
+      body += '<ol class="parts">' + c.parts.map(function (p) {
+        var live = p.href && /^https?:\/\//i.test(p.href);
+        return '<li>' +
+          (live
+            ? '<a href="' + esc(p.href) + '" target="_blank" rel="noopener">' + esc(p.label) + "</a>"
+            : "<span>" + esc(p.label) + "</span>") +
+          "</li>";
+      }).join("") + "</ol>";
+    }
+
     $("#m-body").innerHTML = body;
 
     var foot = (c.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
@@ -324,6 +336,16 @@
     }, { passive: true });
 
     window.addEventListener("resize", evalMode, { passive: true });
+
+    // Respond to hash changes (browser back/forward, or a link to #cowork from
+    // elsewhere on the page). Without this, same-document hash navigation is
+    // silently ignored because the target is only read once, on boot.
+    window.addEventListener("hashchange", function () {
+      var h = location.hash.slice(1);
+      if (!h) return;
+      var f = SLIDES.findIndex(function (s) { return s.id === h; });
+      if (f > -1 && f !== idx) go(f);
+    });
 
     // in stack mode, keep the dots in sync with scroll position
     window.addEventListener("scroll", syncFromScroll, { passive: true });
