@@ -159,20 +159,11 @@ python -m http.server 8099   # then open http://localhost:8099
 
 ## Deploying
 
-### GitHub Pages
-```powershell
-gh repo create anil-site --public --source=. --push
-gh api -X POST repos/:owner/anil-site/pages -f "source[branch]=main" -f "source[path]=/"
-```
+See **[DEPLOY.md](DEPLOY.md)** for the full guide, including the DNS records and
 
-### Azure Static Web Apps
-```powershell
-az staticwebapp create -n anil-site -g <resource-group> -l westeurope `
-  --source https://github.com/<user>/anil-site --branch main `
-  --app-location "/" --output-location "/" --login-with-github
-```
-
-No build command — it's already static.
+Short version: the site is static and self-contained, so drag the folder into
+Cloudflare Pages, or push to a personal GitHub account and enable Pages. No
+build step either way.
 
 ---
 
@@ -180,10 +171,15 @@ No build command — it's already static.
 
 ```
 index.html              deck shell (slides are generated, not authored)
+CNAME                   custom domain for GitHub Pages / Cloudflare
 css/deck.css            Fluent 2 tokens, slide layouts, modal, stack fallback
 js/scene.js             three.js atmosphere — particles, formations, transitions
 js/deck.js              navigation, modals, focus management, layout mode
 data/content.js         ALL content
+tools/og.html           source for the social card
+tools/build-og.js       renders it: node tools/build-og.js
+assets/anil.jpg         portrait
+assets/og.jpg           1200×630 social card
 vendor/three.min.js     three.js r160.1, vendored
 ```
 
@@ -203,8 +199,16 @@ vendor/three.min.js     three.js r160.1, vendored
 - **Deep links resolve before first render.** `evalMode()` calls `go()`, which
   rewrites the hash — so the intended slide is captured at the very top of
   `boot()`, before anything else runs.
+- **three.js loads after first paint**, on `window.load`, then calls
+  `window.__startAtmosphere()`. Content is interactive at roughly 68 KB; the
+  654 KB library arrives afterwards and the CSS veil covers the gap. Measured
+  at 176 ms to seven rendered slides with `THREE` still undefined.
+- **Works from `file://`** with no server and no failed requests — which is
+  also the reason data lives in `.js` rather than `.json`.
 - Verified with zero slide overflow and zero clipped cards at 1920×1080,
-  1600×900, 1440×900, 1366×768, 1280×700, 1280×620 and 1024×768.
+  1600×900, 1440×900, 1366×768, 1280×700, 1280×620, 1100×800, 1024×768,
+  1024×700, 1024×640, 900×700, 820×620, 760×900 — plus stack mode at
+  760×560 and 390×844.
 
 ## Content safety
 
