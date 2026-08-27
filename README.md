@@ -178,6 +178,7 @@ js/deck.js              navigation, modals, focus management, layout mode
 data/content.js         ALL content
 tools/og.html           source for the social card
 tools/build-og.js       renders it: node tools/build-og.js
+tools/check-new-posts.js diffs a LinkedIn scrape against what the site links to
 assets/anil.jpg         portrait
 assets/og.jpg           1200×630 social card
 vendor/three.min.js     three.js r160.1, vendored
@@ -234,6 +235,31 @@ instrument at the interaction layer". Takeaways are observations, not advice.
 Avoid: consultant register (leverage, unpack, double down, move the needle),
 jargon he doesn't use (idempotent, delta, corpus), and literary flourishes that
 sound written rather than lived.
+
+## Keeping it current
+
+Posts arrive in bursts, so the site drifts stale without a nudge.
+A scheduled assistant task runs weekly,
+scans LinkedIn for posts published since the site was last updated and sends a
+Teams proposal with ready-to-paste card blocks.
+
+It **proposes only, never edits.** The author decides what ships.
+
+It is silent when there is nothing new, so most weeks send nothing. It is pinned
+signed-in LinkedIn browser session lives; if the session expires it says so and
+stops rather than guessing credentials.
+
+The diffing is deterministic rather than left to judgement:
+
+```powershell
+node tools/check-new-posts.js scraped.json
+```
+
+It matches on the LinkedIn activity id and checks **both** card links and series
+`parts` entries, so a post that only appears inside a series still counts as
+known. It also decodes each post's date from the activity id (`id >> 22n`) and
+flags one-line captions as `likelyCarousel`, which means the substance is in the
+attached deck and someone has to open it before the post can be written up.
 
 ## Content safety
 
