@@ -251,6 +251,49 @@ button { font: inherit; color: inherit; }
 .slide[data-kind="cards"] .cards[data-n="5"] .card,
 .slide[data-kind="cards"] .cards[data-n="6"] .card { min-height: clamp(150px, 21vh, 210px); }
 
+/* ── dense variant ───────────────────────────────────────
+   Same visual language, more of it. Used where the slide is an index
+   (Posts) rather than an argument. Four columns, tighter type, and the
+   slide head gives up vertical space so the grid can have it.       */
+
+.slide[data-dense] .s-head { margin-bottom: clamp(12px, 1.8vh, 22px); }
+.slide[data-dense] .s-title { font-size: clamp(26px, 3.4vw, 44px); }
+.slide[data-dense] .s-lede { font-size: clamp(13.5px, 1vw, 15.5px); margin-top: 10px; }
+.slide[data-dense] .kicker { margin-bottom: 10px; }
+
+.cards[data-dense] { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: clamp(8px, .85vw, 13px); }
+
+.slide[data-kind="cards"] .cards[data-dense] .card {
+  min-height: 0;
+  padding: clamp(11px, .95vw, 15px);
+  gap: 6px;
+  border-radius: var(--r-lg);
+}
+.cards[data-dense] .c-meta { font-size: 9px; letter-spacing: .1em; }
+.cards[data-dense] .c-title {
+  font-size: clamp(13px, .95vw, 15px); line-height: 1.2;
+  -webkit-line-clamp: 3; line-clamp: 3;
+}
+.cards[data-dense] .c-teaser {
+  font-size: clamp(11.5px, .78vw, 12.5px); line-height: 1.4;
+  -webkit-line-clamp: 2; line-clamp: 2;
+}
+.cards[data-dense] .c-go { padding-top: 7px; font-size: 9px; }
+.cards[data-dense] .c-go svg { width: 10px; height: 10px; }
+.cards[data-dense] .card::after { width: 2px; }
+
+/* Short viewports: 12 dense rows can't hold meta + title + teaser without
+   clipping mid-line. Drop the teaser first (the modal still has it), then
+   tighten the title. Better to show less than to show half a sentence. */
+@media (max-height: 800px) {
+  .cards[data-dense] .c-teaser { display: none; }
+  .cards[data-dense] .c-title { -webkit-line-clamp: 2; line-clamp: 2; }
+}
+@media (max-height: 660px) {
+  .slide[data-dense] .s-lede { display: none; }
+  .cards[data-dense] .c-title { font-size: 12.5px; }
+}
+
 .card {
   position: relative; text-align: left; cursor: pointer;
   display: flex; flex-direction: column; gap: 9px; min-height: 0;
@@ -590,4 +633,8 @@ html.stack .actions { justify-content: flex-start; }
   .slide[data-kind="home"] { grid-template-columns: 1fr; gap: 24px; }
   .cards[data-n="5"], .cards[data-n="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cards[data-n="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cards[data-n="4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards[data-dense] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 }
+
+html.stack .cards[data-dense] { grid-template-columns: 1fr !important; }

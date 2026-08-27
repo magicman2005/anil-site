@@ -13,7 +13,8 @@ Seven slides, deliberately: **Home → M365 Copilot → Cowork → Scout →
 Copilot Studio → Posts → Connect.**
 
 Home is the control center — five cards, each opening a modal for detail or
-jumping to the full slide. Every other slide holds 2–3 cards. Nothing scrolls.
+jumping to the full slide. Product slides hold 2–4 cards. Posts is `dense` —
+twelve compact cards, each linking to the original on LinkedIn. Nothing scrolls.
 
 Each slide has `#id` deep links (`/#cowork`), so you can hand someone a link
 that opens exactly where you want them.
@@ -62,8 +63,21 @@ Open the `posts` slide in `data/content.js`, copy a card block, paste at the top
 
 Leave `href` empty and the card shows *"Link coming soon"* rather than a dead link.
 
-**Keep this list to six.** Beyond that the slide stops fitting one viewport —
-retire the weakest post instead of adding a seventh.
+**Keep this list to twelve.** The Posts slide is `dense: true` — four columns,
+smaller cards — and twelve is what fits one viewport. Past twelve, retire the
+weakest rather than adding a thirteenth.
+
+### Dense slides
+
+Set `dense: true` on any `cards` slide to switch it to the compact variant:
+four columns, tighter type, smaller padding, and a slide head that gives up
+vertical space to the grid. Same visual language, roughly double the density.
+
+Below 800px tall the card teaser is hidden and titles clamp to two lines;
+below 660px the slide lede goes too. That's deliberate — at those heights
+twelve rows cannot show meta + title + teaser without clipping text mid-line,
+and a clipped sentence looks broken in a way a missing one does not. The full
+text is always in the modal.
 
 To get a permalink: open the post on LinkedIn → **…** menu → **Copy link**.
 Or note that LinkedIn activity IDs encode their own timestamp — `id >> 22n`
@@ -189,8 +203,8 @@ vendor/three.min.js     three.js r160.1, vendored
 - **Deep links resolve before first render.** `evalMode()` calls `go()`, which
   rewrites the hash — so the intended slide is captured at the very top of
   `boot()`, before anything else runs.
-- Verified with zero slide overflow at 1920×1080, 1440×900, 1366×768,
-  1280×620 and 1024×768.
+- Verified with zero slide overflow and zero clipped cards at 1920×1080,
+  1600×900, 1440×900, 1366×768, 1280×700, 1280×620 and 1024×768.
 
 ## Content safety
 

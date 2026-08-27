@@ -378,16 +378,17 @@ window.DECK = {
       label: "Posts",
       hue: 160,
       scene: "wave",
+      dense: true,
       kicker: "From LinkedIn",
       title: "Written in public",
-      lede: "Open a card to read the post. Every one links back to the original.",
+      lede: "Every card opens the full post and links straight back to the original on LinkedIn.",
       /* ---------------------------------------------------------------
          TO ADD A POST
          1. Open the post on LinkedIn, "..." menu, Copy link.
-         2. Copy a block below, paste it at the top of this array.
+         2. Copy a block below, paste it in date order (newest first).
          3. Fill in meta (date), title, teaser, body, tags, stat, link.
-         Keep this list to SIX. Beyond that the slide stops fitting one
-         viewport — retire the weakest instead of adding a seventh.
+         This slide is DENSE (4 columns) and holds up to 12 cards in one
+         viewport. Past 12, retire the weakest rather than adding a 13th.
       --------------------------------------------------------------- */
       cards: [
         {
@@ -454,6 +455,37 @@ window.DECK = {
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7433092328434712576/", label: "Read on LinkedIn" },
         },
         {
+          meta: "17 Feb 2026",
+          title: "Hosting the M365 Copilot hub at ExCeL",
+          teaser: "Station 101 — the Copilot Control System and Agent 365. Bring a tricky use case.",
+          body: [
+            "Back at ExCeL London on 24 February for the Microsoft AI Tour, hosting on the Microsoft 365 " +
+            "Copilot hub — the one enthusiastically talking about real M365 Copilot outcomes, and pretending " +
+            "I don't enjoy a good demo as much as everyone else.",
+            "If you've got a tricky use case, bring it. Station 101, 'AI Business Solutions: M365 Copilot " +
+            "Control System & Agent 365'.",
+          ],
+          tags: ["M365 Copilot", "Events"],
+          stat: "41 reactions",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7429466847403577344/", label: "Read on LinkedIn" },
+        },
+        {
+          meta: "30 Jan 2026",
+          title: "Agents aren't features — they're a workforce",
+          teaser: "AI everywhere doesn't equal an AI platform. Without design you get patchwork agents and shadow AI.",
+          body: [
+            "Four points worth repeating from a colleague's piece: AI everywhere doesn't equal an AI platform. " +
+            "Without design, you get patchwork agents, accidental shadow AI and growing risk.",
+            "The shift we need is from impressive demos to durable, governable digital labour. Agents aren't " +
+            "features — they're a workforce. And workforces need identity, controls, intelligence and lifecycle " +
+            "management by design.",
+          ],
+          takeaway: "If you wouldn't give a new starter system access without identity and a leaver process, don't give an agent one either.",
+          tags: ["Governance", "Agent 365"],
+          stat: "7 reactions · 1 repost",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7422951931943239680/", label: "Read on LinkedIn" },
+        },
+        {
           meta: "5 Jan 2026",
           title: "Three months in as a Copilot Solution Engineer",
           teaser: "Adoption initiatives, executive workshops and governance frameworks — going beyond the licence.",
@@ -488,6 +520,39 @@ window.DECK = {
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7379062526048677888/", label: "Read on LinkedIn" },
         },
         {
+          meta: "17 Sep 2025",
+          title: "£22bn to power the UK's AI future",
+          teaser: "Microsoft's largest ever UK commitment — including the country's largest supercomputer.",
+          body: [
+            "Microsoft announced a $30bn (£22bn) investment in the UK's AI future, spanning 2025 to 2028 — the " +
+            "company's largest ever financial commitment in the UK.",
+            "$15bn goes towards new cloud and AI infrastructure, including the country's largest supercomputer " +
+            "with 23,000-plus advanced GPUs, in partnership with Nscale. The rest strengthens existing " +
+            "operations, drives progress on the UK Government's AI Action Plan, and supports free AI skills " +
+            "for more than a million people.",
+          ],
+          tags: ["UK", "Infrastructure"],
+          stat: "4,184 reactions · 146 comments · 328 reposts",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7374006315054186496/", label: "Read on LinkedIn" },
+        },
+        {
+          meta: "9 Sep 2025",
+          title: "Confidential by design: securing OneNote for the age of AI",
+          teaser: "Sensitivity labelling had to land before Copilot could be fully integrated. 300,000+ users.",
+          body: [
+            "OneNote is a powerhouse for collaboration — used across Microsoft for everything from " +
+            "troubleshooting guides to post-incident reviews. But with Microsoft 365 Copilot, securing " +
+            "sensitive content in it became mission-critical.",
+            "Before Copilot could be fully integrated into OneNote internally, the team had to deploy " +
+            "sensitivity labelling: encrypted protection labels rolled out to 300,000-plus employees and " +
+            "vendors, Copilot made to respect confidentiality and governance policies, and a critical security " +
+            "gap in the M365 suite closed.",
+          ],
+          takeaway: "Grounding and labelling are the same project. Copilot integration waits on the label rollout, not the other way round.",
+          tags: ["Purview", "Governance"],
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7371090282190102528/", label: "Read on LinkedIn" },
+        },
+        {
           meta: "25 Jul 2025",
           title: "Moments that matter",
           teaser: "Ten years at Microsoft, a 100,000-seat Copilot rollout, and a Circle of Excellence Gold Club award.",
@@ -504,6 +569,33 @@ window.DECK = {
           tags: ["Milestones", "Adoption at scale"],
           stat: "216 reactions · 70 comments",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7354479208389087233/", label: "Read on LinkedIn" },
+        },
+        {
+          meta: "15 Jul 2025",
+          title: "Presenting the Barclays Microsoft journey at UK FY26 kick-off",
+          teaser: "Years of partnership, presented to UK leadership and the whole UK & Ireland business.",
+          body: [
+            "As part of UK FY26 kick-off, I and the wider Barclays team presented the Barclays Microsoft " +
+            "journey — to UK leadership and to the whole of the UK and Ireland business.",
+            "Thanks to the Barclays team for the trust and the relationship that let us deliver 'moments that " +
+            "matter' throughout the years.",
+          ],
+          tags: ["Financial Services", "Partnership"],
+          stat: "185 reactions · 4 reposts",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7350898127198949377/", label: "Read on LinkedIn" },
+        },
+        {
+          meta: "19 Jun 2025",
+          title: "It's Happening Here, at Radbroke",
+          teaser: "A day of questions and discussion with colleagues at the bank. Roll on London.",
+          body: [
+            "Another It's Happening Here event at Barclays Radbroke — an enjoyable and productive day, well " +
+            "attended, with plenty of interaction, questions and discussion with colleagues at the bank.",
+            "Roll on London. Supported on the day by the wider Microsoft team.",
+          ],
+          tags: ["Financial Services", "Events"],
+          stat: "83 reactions · 1 repost",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7341362052537450496/", label: "Read on LinkedIn" },
         },
       ],
     },

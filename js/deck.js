@@ -34,7 +34,10 @@
 
   function cardHTML(c, i, slideHue) {
     var hue = c.hue == null ? slideHue : c.hue;
-    var label = c.go ? "Open" : "Read";
+    var label = c.go ? "Open"
+      : (c.parts && c.parts.length) ? c.parts.length + " parts"
+      : (c.link && /^https?:\/\//i.test(c.link.href)) ? "LinkedIn"
+      : "Read";
     return '' +
       '<button class="card" type="button" style="--c-hue:' + hue + '" ' +
         'data-card="' + i + '" aria-haspopup="dialog">' +
@@ -92,7 +95,8 @@
 
     } else {
       inner = headHTML(s) +
-        '<div class="cards" data-n="' + s.cards.length + '">' +
+        '<div class="cards" data-n="' + s.cards.length + '"' +
+          (s.dense ? ' data-dense="true"' : '') + '>' +
           s.cards.map(function (c, ci) { return cardHTML(c, ci, s.hue); }).join("") +
         '</div>';
     }
