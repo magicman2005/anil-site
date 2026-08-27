@@ -80,7 +80,7 @@
         '<div class="home-copy">' +
           ident +
           (s.kicker ? '<p class="kicker">' + esc(s.kicker) + '</p>' : '') +
-          '<h2 class="s-title">' + esc(s.title) + '</h2>' +
+          '<h1 class="s-title">' + esc(s.title) + '</h1>' +
           (s.lede ? '<p class="s-lede">' + esc(s.lede) + '</p>' : '') +
           '<p class="home-hint"><kbd>&larr;</kbd><kbd>&rarr;</kbd> to travel &middot; ' +
             'click any card for detail</p>' +
@@ -395,15 +395,6 @@
     modal = $("#modal");
     bind();
 
-    window.__atmoOK = window.Atmosphere.init($("#bg"));
-    if (window.__atmoOK) window.Atmosphere.setReduced(reduced);
-
-    var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))(function (e) {
-      reduced = e.matches;
-      if (window.__atmoOK) window.Atmosphere.setReduced(reduced);
-    });
-
     stackMode = !wantStack();
     evalMode();
 
@@ -421,6 +412,24 @@
 
     document.body.classList.add("ready");
   }
+
+  /* Called by index.html once three.js and scene.js have loaded, after first
+     paint. Until then the CSS veil carries the visuals on its own. */
+  window.__startAtmosphere = function () {
+    if (!window.Atmosphere || stackMode) return;
+    window.__atmoOK = window.Atmosphere.init($("#bg"));
+    if (!window.__atmoOK) return;
+    window.Atmosphere.setReduced(reduced);
+
+    var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))(function (e) {
+      reduced = e.matches;
+      if (window.__atmoOK) window.Atmosphere.setReduced(reduced);
+    });
+
+    var s = SLIDES[idx];
+    window.Atmosphere.goTo(s.scene, s.hue);
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);

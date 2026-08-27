@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OG card</title>
+<!--
+  Source for assets/og.png — the 1200x630 card LinkedIn, Teams and Slack unfurl.
+  Regenerate after changing the headline, title or portrait:
+      node tools/build-og.js
+  Not linked from the site; it exists only to be screenshotted.
+-->
+<style>
+  html, body { width: 1200px; height: 630px; overflow: hidden; margin: 0; }
+  body { background: #05070b; }
+  * { box-sizing: border-box; }
+
+  .og {
+    position: relative; width: 1200px; height: 630px;
+    padding: 56px 72px 52px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    isolation: isolate;
+  }
+
+  /* same hue language as the deck's veil */
+  .og::before {
+    content: ""; position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(58% 72% at 82% 14%, hsl(210 95% 58% / .40), transparent 62%),
+      radial-gradient(50% 60% at 8% 92%, hsl(186 80% 44% / .24), transparent 66%),
+      linear-gradient(160deg, #070b12, #05070b 62%);
+  }
+  /* a hint of the particle field */
+  .og::after {
+    content: ""; position: absolute; inset: 0; z-index: -1; opacity: .55;
+    background-image:
+      radial-gradient(1.6px 1.6px at 18% 30%, rgba(255,255,255,.55), transparent),
+      radial-gradient(1.6px 1.6px at 74% 22%, hsl(210 92% 72% / .65), transparent),
+      radial-gradient(1.6px 1.6px at 62% 68%, rgba(255,255,255,.38), transparent),
+      radial-gradient(2.2px 2.2px at 88% 54%, hsl(186 92% 70% / .55), transparent),
+      radial-gradient(1.6px 1.6px at 34% 78%, rgba(255,255,255,.42), transparent),
+      radial-gradient(1.6px 1.6px at 50% 40%, hsl(210 92% 74% / .5), transparent),
+      radial-gradient(1.2px 1.2px at 26% 56%, rgba(255,255,255,.32), transparent),
+      radial-gradient(1.2px 1.2px at 92% 82%, rgba(255,255,255,.32), transparent),
+      radial-gradient(1.2px 1.2px at 80% 38%, hsl(210 92% 78% / .45), transparent),
+      radial-gradient(1.2px 1.2px at 44% 18%, rgba(255,255,255,.3), transparent);
+  }
+
+  .top { display: flex; align-items: center; gap: 22px; }
+  .top img {
+    width: 96px; height: 96px; border-radius: 999px; object-fit: cover;
+    border: 1px solid rgba(255,255,255,.22);
+    box-shadow: 0 0 0 5px hsl(210 92% 60% / .18), 0 10px 30px rgba(0,0,0,.5);
+  }
+  .who { display: flex; flex-direction: column; gap: 6px; }
+  .who strong {
+    font-family: "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+    font-size: 31px; font-weight: 660; letter-spacing: -.02em; color: #f4f6f9;
+  }
+  .who span {
+    font-family: ui-monospace,"Cascadia Mono",Consolas,monospace;
+    font-size: 15.5px; letter-spacing: .07em; color: hsl(210 92% 72%);
+  }
+  .who small {
+    font-family: ui-monospace,"Cascadia Mono",Consolas,monospace;
+    font-size: 14px; letter-spacing: .06em; color: #8b95a3;
+  }
+
+  h1 {
+    font-family: "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+    font-size: 78px; font-weight: 680; line-height: 1.02; letter-spacing: -.03em;
+    color: #f4f6f9; margin: 0;
+  }
+  h1 em { font-style: normal; color: hsl(210 92% 72%); }
+
+  .foot {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px;
+  }
+  .tags {
+    font-family: ui-monospace,"Cascadia Mono",Consolas,monospace;
+    font-size: 15px; letter-spacing: .13em; text-transform: uppercase; color: #8b95a3;
+  }
+  .url {
+    font-family: ui-monospace,"Cascadia Mono",Consolas,monospace;
+    font-size: 18px; letter-spacing: .08em; color: hsl(210 92% 72%);
+  }
+</style>
+</head>
+<body>
+  <div class="og">
+    <div class="top">
+      <img src="../assets/anil.jpg" alt="" />
+      <div class="who">
+        <strong>Anil Madhok</strong>
+        <span>Senior M365 Copilot &amp; Agent Solution Engineer</span>
+        <small>AI Business Solutions · Microsoft</small>
+      </div>
+    </div>
+
+    <h1>What actually happens<br /><em>after you turn it on.</em></h1>
+
+    <div class="foot">
+      <span class="tags">Copilot · Cowork · Scout · Copilot Studio</span>
+      <span class="url">anil.madhok.uk</span>
+    </div>
+  </div>
+</body>
+</html>
