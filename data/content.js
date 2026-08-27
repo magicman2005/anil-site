@@ -58,26 +58,26 @@ window.DECK = {
           title: "Microsoft 365 Copilot",
           teaser: "Rollout, grounding quality, and why entitlement is not adoption.",
           body: [
-            "The surface most people mean when they say 'Copilot' — and the one where the gap between a " +
-            "successful pilot and a successful rollout is widest.",
-            "Three patterns dominate: measurement that flatters, content estates that quietly sabotage " +
+            "The surface most people mean when they say 'Copilot', and the one where I see the widest gap " +
+            "between a pilot that goes well and a rollout that does.",
+            "Three things come up again and again: measurement that flatters, content estates that quietly sabotage " +
             "grounding, and the ninety-day window where a capability either becomes a habit or becomes shelfware.",
           ],
-          takeaway: "Instrument honestly, fix the estate, and attach it to rituals people already have.",
+          takeaway: "Measure honestly, fix the estate, then attach it to something people already do every week.",
           go: "m365",
           hue: 210,
         },
         {
           meta: "02",
           title: "Cowork",
-          teaser: "Agentic sessions produce artifacts, not transcripts. Review is the new bottleneck.",
+          teaser: "Agentic sessions produce artefacts, not transcripts. Review is the new bottleneck.",
           body: [
-            "Cowork changes the shape of the output. You don't get an answer to skim, you get files — a deck, " +
+            "Cowork changes the shape of the output. I don't get an answer to skim, I get files — a deck, " +
             "a prototype, a set of reports.",
             "That's a genuine step change in usefulness, and it relocates the constraint. Generation stops " +
             "being the hard part; reviewing and finding the output becomes it.",
           ],
-          takeaway: "Plan for review capacity and an index, not just licences.",
+          takeaway: "I had to plan for review capacity and an index, not just licences.",
           go: "cowork",
           hue: 186,
         },
@@ -86,12 +86,12 @@ window.DECK = {
           title: "Microsoft Scout",
           teaser: "When the unit of automation moves from a prompt to a recurring job.",
           body: [
-            "An agent with real tools on the desktop — files, shell, browser, Graph — stops being a better " +
-            "chat window and starts being a scheduled worker.",
-            "The design discipline it demands borrows far more from unattended jobs than from prompting: " +
-            "stable inputs, idempotent output, and a sane failure mode.",
+            "An agent with real tools on my desktop — files, shell, browser, Graph — stopped being a better " +
+            "chat window and started being a scheduled worker.",
+            "What it asks of you borrows far more from scheduled jobs than from prompting: " +
+            "stable inputs, repeatable output, and a sensible failure mode.",
           ],
-          takeaway: "Durable skills beat clever prompts, because context shouldn't be retyped.",
+          takeaway: "Durable skills beat clever prompts. I stopped retyping my context and the gains started compounding.",
           go: "scout",
           hue: 28,
         },
@@ -100,11 +100,11 @@ window.DECK = {
           title: "Copilot Studio",
           teaser: "Surface selection and knowledge boundaries decide these projects.",
           body: [
-            "Most agent requirements turn out to be retrieval plus a workflow. That's a solvable shape — but " +
+            "Most agent requests I get turn out to be retrieval plus a workflow. That's a solvable shape, but " +
             "it isn't surface-neutral, and choosing the surface late is expensive.",
-            "Once you're building, the quality delta is almost never orchestration. It's the corpus.",
+            "Once you're building, the difference between good and embarrassing is almost never orchestration. It's what you pointed it at.",
           ],
-          takeaway: "Decide the surface in an afternoon; spend the first sprint on the knowledge boundary.",
+          takeaway: "Decide the surface in an afternoon. Then spend the first sprint on the knowledge boundary.",
           go: "studio",
           hue: 272,
         },
@@ -139,15 +139,16 @@ window.DECK = {
           title: "Entitlement is not adoption, and the admin centre won't tell you",
           teaser: "The honest signal isn't in the usage report. It's in the audit log.",
           body: [
-            "The usage reports answer 'who has a licence' far better than they answer 'who is getting value'. " +
+            "The usage reports answer 'who has a licence' far better than they answer 'who is actually " +
+            "getting value'. " +
             "The honest signal sits in the audit log: distinct users, interactions per user, and which surface " +
-            "people actually came in through.",
+            "people really came in through.",
             "I've seen a tenant look almost dormant in one view and show four figures of real interactions in " +
-            "another — same tenant, same week. Both numbers were technically correct. Only one of them described " +
-            "what was happening.",
+            "another — same tenant, same week. Both numbers were technically correct. Only one of them actually " +
+            "described what was happening.",
           ],
           takeaway:
-            "Instrument at the interaction layer before you write the adoption story. Reports for trends, audit logs for truth.",
+            "I look at the interaction layer now before I write any adoption story. Reports for trends, audit logs for truth.",
           tags: ["Measurement", "Adoption"],
         },
         {
@@ -155,13 +156,13 @@ window.DECK = {
           title: "Grounding quality is a content-hygiene problem wearing an AI costume",
           teaser: "Every bad-answer escalation I've worked ended somewhere unglamorous.",
           body: [
-            "Nearly every 'Copilot gave a bad answer' escalation ends in the same places: a site with broken " +
-            "permissions, a decade of duplicate decks, a sensitivity label applied to the wrong library.",
+            "Nearly every 'Copilot gave a bad answer' escalation I've worked ended in the same places: a site " +
+            "with broken permissions, a decade of duplicate decks, a sensitivity label on the wrong library.",
             "The model is doing exactly what it was told with exactly what it can see. Oversharing and stale " +
             "content used to be an abstract governance concern. They are now a user-facing defect that anyone " +
             "in the business can trip over in a single prompt.",
           ],
-          takeaway: "Fix the estate before you tune the prompt. Content hygiene is now product quality.",
+          takeaway: "Every time, it has been the estate rather than the prompt. Content hygiene is now product quality.",
           tags: ["Grounding", "Purview"],
         },
         {
@@ -171,11 +172,11 @@ window.DECK = {
           body: [
             "Capability lands on day one. Habit doesn't. The teams where it stuck were the ones who attached " +
             "Copilot to a ritual they already had — the status update, the meeting recap, the bid response — " +
-            "rather than waiting for a moment of inspiration to strike.",
+            "rather than waiting for inspiration to strike.",
             "Breadth-first rollouts generate impressive licence numbers and disappointing usage curves. " +
-            "Depth-first rollouts look slower on the slide and compound in a way the other never does.",
+            "Depth-first rollouts look slower on the slide and actually compound in a way the other never does.",
           ],
-          takeaway: "Pick three recurring rituals per team and make Copilot the default way to do them. Breadth later.",
+          takeaway: "Three recurring rituals per team, and Copilot becomes the default way to do them. Breadth later.",
           tags: ["Adoption", "Change"],
         },
         {
@@ -223,15 +224,15 @@ window.DECK = {
       cards: [
         {
           meta: "Aug 2026",
-          title: "Agentic sessions produce artifacts, not transcripts",
+          title: "Agentic sessions produce artefacts, not transcripts",
           teaser: "Which quietly moves the bottleneck from generation to review.",
           body: [
-            "A long Cowork session doesn't end with an answer you skim. It ends with files: a deck, a working " +
+            "A long Cowork session doesn't end with an answer I skim. It ends with files: a deck, a working " +
             "prototype, a set of reports. That's genuinely more useful than a chat log.",
-            "It also moves the bottleneck. The question stops being 'can it do the work' and becomes 'can a " +
-            "human credibly review the volume of work it just did'. Almost nobody is staffing for that second one.",
+            "It also moves the bottleneck. The question stops being 'can it do the work' and becomes 'can I " +
+            "credibly review the volume of work it just did'. Almost nobody is staffing for that second one.",
           ],
-          takeaway: "Budget review capacity, not just seats. Agree the acceptance check before you start the session.",
+          takeaway: "I budget review capacity now, not just seats, and agree the acceptance check before the session starts.",
           tags: ["Review", "Operating model"],
         },
         {
@@ -239,12 +240,12 @@ window.DECK = {
           title: "Output outruns your ability to find it again",
           teaser: "The work was good. Locating it three weeks later was the problem.",
           body: [
-            "After a few weeks of real use I had hundreds of generated artifacts across dozens of session " +
+            "After a few weeks of real use I had hundreds of generated artefacts across dozens of session " +
             "folders and no index. Every one of them was useful at the moment it was made.",
-            "The failure mode of agentic work isn't bad output. It's unfindable output — and it arrives much " +
-            "faster than the filing habits of the person receiving it.",
+            "The failure mode of agentic work isn't bad output. It's output I can't find again, and it arrives " +
+            "a lot faster than my filing habits.",
           ],
-          takeaway: "Add a librarian step on day one: one page indexing what was produced, when, and why it exists.",
+          takeaway: "I added a librarian step in the end: one page indexing what was produced, when, and why. Should have done it on day one.",
           tags: ["Knowledge", "Practice"],
         },
         {
@@ -288,14 +289,14 @@ window.DECK = {
           title: "The unit of automation moves from 'prompt' to 'recurring job'",
           teaser: "Not 'what can I ask it' but 'what should it do at 7am without me'.",
           body: [
-            "Once an agent sits on the desktop with real tools — files, shell, browser, Graph — the interesting " +
-            "question stops being 'what can I ask it' and becomes 'what should it do every morning at seven " +
+            "Once an agent sits on my desktop with real tools — files, shell, browser, Graph — the interesting " +
+            "question stopped being 'what can I ask it' and became 'what should it do every morning at seven " +
             "without me'.",
-            "Inbox triage, account refreshes, dashboard rebuilds. That's a genuinely different design exercise " +
+            "Inbox triage, account refreshes, dashboard rebuilds. That's a genuinely different exercise " +
             "from prompting, and it borrows far more from scheduled jobs than from chat.",
           ],
           takeaway:
-            "Design for unattended runs: explicit inputs, idempotent output, and a clear failure mode when a source is unavailable.",
+            "Unattended runs need explicit inputs, repeatable output and a sensible failure mode when a source is missing. That is a different discipline from prompting.",
           tags: ["Automation", "Design"],
         },
         {
@@ -303,13 +304,13 @@ window.DECK = {
           title: "Skills beat prompts, because context shouldn't be retyped",
           teaser: "Encode it once and a capable assistant becomes one that's actually yours.",
           body: [
-            "Re-explaining how you work at the start of every session is a tax you pay forever. Encoding it " +
-            "once — folder conventions, tone, approval steps, the people who matter — changes the character " +
+            "Re-explaining how I work at the start of every session is a tax I was paying forever. Encoding it " +
+            "once — folder conventions, tone, approval steps, the people who matter — changed the character " +
             "of the thing entirely.",
             "The gains compound in a way single prompts never do, which is exactly why they deserve the same " +
             "treatment as code: versioned, reviewed, and improved when they're wrong.",
           ],
-          takeaway: "Write the skill the second time you explain something. Version it like code, because it is code.",
+          takeaway: "I write the skill the second time I explain something, and version it like code, because it is code.",
           tags: ["Skills", "Practice"],
         },
       ],
@@ -331,14 +332,14 @@ window.DECK = {
           title: "Most 'we need an agent' requests are retrieval plus a workflow",
           teaser: "A very solvable shape — but a different build depending on the surface.",
           body: [
-            "Strip the ask back and it's usually: find the right document, apply a rule, update a system of " +
+            "Strip the request back and it's usually: find the right document, apply a rule, update a system of " +
             "record, tell someone. That's a well-understood shape.",
             "What it isn't is surface-neutral. The same requirement belongs in the Copilot front door, in " +
-            "Studio, or in neither — and teams routinely start building before they've made that call, then " +
-            "spend a quarter discovering they chose wrong.",
+            "Studio, or in neither, and I regularly see teams start building before they've made that call, then " +
+            "spend a quarter finding out they chose wrong.",
           ],
           takeaway:
-            "Choose the surface before you build. A declarative agent you ship in a week beats a custom engine you demo in a quarter.",
+            "Pick the surface before building. A declarative agent shipped in a week beats a custom engine demoed in a quarter.",
           tags: ["Architecture", "Delivery"],
         },
         {
@@ -346,13 +347,13 @@ window.DECK = {
           title: "Knowledge sources are where these projects are won or lost",
           teaser: "The delta is almost never orchestration. It's what you pointed it at.",
           body: [
-            "Topics, orchestration and prompt engineering get the attention in every design session. In " +
+            "Topics, orchestration and prompt engineering get the attention in every design session I sit in. In " +
             "practice, the difference between a convincing agent and an embarrassing one is the quality, " +
             "scoping and freshness of its knowledge.",
             "A small correct corpus beats a large plausible one every time, and it's far cheaper to defend " +
             "when someone senior asks where an answer came from.",
           ],
-          takeaway: "Spend the first sprint on the knowledge boundary, not the orchestration graph.",
+          takeaway: "The first sprint belongs to the knowledge boundary, not the orchestration graph.",
           tags: ["Knowledge", "Quality"],
         },
         {
@@ -360,14 +361,14 @@ window.DECK = {
           title: "The moment an agent can act for you, it becomes an HR question",
           teaser: "Who owns it, what can it touch, how do we see what it did, how do we retire it.",
           body: [
-            "The questions that matter about an acting agent are not maker-portal questions. They're identity, " +
-            "lifecycle and supervision questions — the same ones any organisation already asks about people " +
+            "The questions that matter about an agent that can act are not maker-portal questions. They're identity, " +
+            "lifecycle and supervision questions — the same ones we already ask about people " +
             "with system access.",
             "Retrofitting that after a successful pilot is dramatically more expensive than building it in " +
             "while the estate is small — and it's the difference between a governance team saying 'yes' and " +
             "saying 'not yet'.",
           ],
-          takeaway: "Give every agent an owner, an identity and an off-switch on day one.",
+          takeaway: "Every agent needs an owner, an identity and an off-switch on day one.",
           tags: ["Agent 365", "Governance"],
         },
       ],
@@ -437,7 +438,7 @@ window.DECK = {
             "split is what made it worth using rather than just a good demo.",
           ],
           takeaway:
-            "The useful division of labour isn't human-or-agent. It's agent executes, human sets direction and owns what ships.",
+            "It executes direction well. It does not set direction, and it does not decide what ships — that was on me every time.",
           tags: ["Microsoft Scout", "Agentic AI"],
           stat: "23 reactions · 2 comments · 2 reposts",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7490319123776745472/", label: "Read on LinkedIn" },
@@ -482,7 +483,7 @@ window.DECK = {
             "features — they're a workforce. And workforces need identity, controls, intelligence and lifecycle " +
             "management by design.",
           ],
-          takeaway: "If you wouldn't give a new starter system access without identity and a leaver process, don't give an agent one either.",
+          takeaway: "We would not give a new starter system access without an identity and a leaver process. Agents should not be any different.",
           tags: ["Governance", "Agent 365"],
           stat: "7 reactions · 1 repost",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7422951931943239680/", label: "Read on LinkedIn" },
@@ -500,7 +501,7 @@ window.DECK = {
             "working through 150-plus Ignite announcements.",
             "Going into 2026 the theme is the same one that keeps proving itself: going beyond the licence.",
           ],
-          takeaway: "Deployment is the easy half. Adoption, governance and demonstrated value are the half that decides whether it lasts.",
+          takeaway: "Deployment is the easy half. Adoption, governance and proving the value are what decide whether it lasts.",
           tags: ["M365 Copilot", "Financial Services"],
           stat: "61 reactions · 2 comments",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7413880568569942017/", label: "Read on LinkedIn" },
@@ -516,7 +517,7 @@ window.DECK = {
             "grounding I bring to this work now — what regulated enterprise adoption actually looks like from " +
             "the inside, rather than from a deck.",
           ],
-          takeaway: "Time spent inside a regulated customer is the difference between advising on governance and having lived it.",
+          takeaway: "Seven years inside the bank is the difference between advising on governance and having lived it.",
           tags: ["Career", "Financial Services"],
           stat: "200 reactions · 29 comments",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7379062526048677888/", label: "Read on LinkedIn" },
@@ -550,7 +551,7 @@ window.DECK = {
             "vendors, Copilot made to respect confidentiality and governance policies, and a critical security " +
             "gap in the M365 suite closed.",
           ],
-          takeaway: "Grounding and labelling are the same project. Copilot integration waits on the label rollout, not the other way round.",
+          takeaway: "Grounding and labelling turn out to be the same project. Copilot integration waited on the label rollout, not the other way round.",
           tags: ["Purview", "Governance"],
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7371090282190102528/", label: "Read on LinkedIn" },
         },

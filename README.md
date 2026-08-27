@@ -210,6 +210,31 @@ vendor/three.min.js     three.js r160.1, vendored
   1024×700, 1024×640, 900×700, 820×620, 760×900 — plus stack mode at
   760×560 and 390×844.
 
+## Voice and language
+
+**UK English throughout.** organisation, recognise, labelling, artefact, licence
+(noun), centre. CSS and JS keywords stay American — `color`, `center`, `dialog`,
+`Math` — those are language APIs, not prose. The schema.org `Organization` type
+is likewise fixed.
+
+**Written in the author's register**, checked against his actual LinkedIn posts rather
+than by feel:
+
+| | his posts | Site |
+|---|---|---|
+| "I" per 1,000 words | 13.0 | 14.9 |
+| "you" per 1,000 words | 3.5 | 4.1 |
+| "actually" per 1,000 words | 4.0 | 3.2 |
+| em-dashes per 1,000 words | 14.0 | 13.3 |
+
+The rule that matters: **report what happened, don't instruct the reader.**
+He writes "I've seen a tenant look almost dormant in one view", not "you should
+instrument at the interaction layer". Takeaways are observations, not advice.
+
+Avoid: consultant register (leverage, unpack, double down, move the needle),
+jargon he doesn't use (idempotent, delta, corpus), and literary flourishes that
+sound written rather than lived.
+
 ## Content safety
 
 Public site. Everything on it is drawn from the author's own public LinkedIn posts
