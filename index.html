@@ -52,7 +52,7 @@
 </script>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232899F5'/%3E%3Cpath d='M9 22 L16 10 L23 22' stroke='%23041018' stroke-width='2.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
-<link rel="stylesheet" href="css/deck.css" />
+<link rel="stylesheet" href="css/deck.css?v=bce8e9ee" />
 </head>
 
 <body>
@@ -65,7 +65,14 @@
 
 <header class="chrome">
   <a class="brand" href="#home">
-    <span class="mark" aria-hidden="true"></span>
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 23 23" width="24" height="24" role="img" aria-label="Microsoft">
+        <rect x="1"  y="1"  width="10" height="10" fill="#F25022" />
+        <rect x="12" y="1"  width="10" height="10" fill="#7FBA00" />
+        <rect x="1"  y="12" width="10" height="10" fill="#00A4EF" />
+        <rect x="12" y="12" width="10" height="10" fill="#FFB900" />
+      </svg>
+    </span>
     <span class="brand-txt">
       <strong>Anil Madhok</strong>
       <small>Copilot &amp; Agent Solution Engineer · Microsoft</small>
@@ -107,18 +114,18 @@
 
 <p class="sr" id="live" aria-live="polite" role="status"></p>
 
-<script src="data/content.js"></script>
-<script src="js/deck.js"></script>
+<script src="data/content.js?v=c36c7bb7"></script>
+<script src="js/deck.js?v=dedbd2f8"></script>
 <!-- three.js is 654 KB — 85% of the payload — and the deck is fully usable
      without it (the CSS veil is a complete fallback). Load it after the
      content has painted, then attach the atmosphere. -->
 <script>
   window.addEventListener("load", function () {
     var s = document.createElement("script");
-    s.src = "vendor/three.min.js";
+    s.src = "vendor/three.min.js?v=ccabb6c3";
     s.onload = function () {
       var t = document.createElement("script");
-      t.src = "js/scene.js";
+      t.src = "js/scene.js?v=1b53015c";
       t.onload = function () { if (window.__startAtmosphere) window.__startAtmosphere(); };
       document.body.appendChild(t);
     };

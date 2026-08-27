@@ -139,17 +139,15 @@ button { font: inherit; color: inherit; }
 
 .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: inherit; }
 
+/* Microsoft logo. Brand guidelines: never recoloured, never distorted, never
+   placed inside a tinted container, and given clear space. That is why this
+   has no background and no hue transition — unlike every other accent on the
+   site, it must stay fixed as the slide colour changes. */
 .mark {
-  width: 30px; height: 30px; border-radius: var(--r-lg); flex: none; position: relative;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 0 1px var(--stroke), 0 0 22px var(--accent-glow);
-  transition: background var(--d-slower) var(--c-ease), box-shadow var(--d-slower) var(--c-ease);
+  width: 30px; height: 30px; flex: none;
+  display: grid; place-items: center;
 }
-.mark::after {
-  content: ""; position: absolute; inset: 8px 9px;
-  border-left: 2px solid rgba(0,0,0,.55); border-bottom: 2px solid rgba(0,0,0,.55);
-  transform: skewX(-12deg);
-}
+.mark svg { display: block; }
 
 .brand-txt { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-txt strong { font-family: var(--sans); font-size: var(--f-body); letter-spacing: -.01em; }

@@ -175,6 +175,7 @@ js/deck.js              navigation, modals, focus management, layout mode
 data/content.js         ALL content
 tools/og.html           source for the social card
 tools/build-og.js       renders it: node tools/build-og.js
+tools/stamp.js          cache-busts assets: node tools/stamp.js (run before committing)
 tools/check-new-posts.js diffs a LinkedIn scrape against what the site links to
 assets/anil.jpg         portrait
 assets/og.jpg           1200×630 social card

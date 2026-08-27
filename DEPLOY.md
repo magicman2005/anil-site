@@ -13,6 +13,7 @@ server at all, which means any static host will serve it correctly.
 ## Publishing an update
 
 ```powershell
+node tools/stamp.js     # cache-bust changed assets
 git add -A
 git commit -m "..."
 git push
@@ -23,6 +24,21 @@ Live in a minute or two. Check the build with:
 ```powershell
 gh api repos/magicman2005/anil-site/pages/builds/latest --jq '.status'
 ```
+
+### Why `stamp.js` matters
+
+GitHub Pages serves CSS and JS with a 10-minute cache, and browsers hold them
+longer still. Without a changing URL, anyone who has visited before sees stale
+styles and stale behaviour after a deploy — which looks exactly like "the change
+didn't work", including to you.
+
+`tools/stamp.js` rewrites the `?v=` query on every local asset reference in
+`index.html` to a short hash of that file's contents. Only files that actually
+changed get a new URL, so unchanged assets stay cached. It is idempotent, so
+running it when nothing changed does nothing.
+
+Skip it and the deploy still works — it just won't be visible until caches
+expire.
 
 ## Local preview
 
