@@ -49,22 +49,25 @@ Open the `posts` slide in `data/content.js`, copy a card block, paste at the top
 
 ```js
 {
-  meta:   "18 Aug 2026",
+  meta:   "4 Aug 2026",
   title:  "The headline",
   teaser: "One or two lines shown on the card face.",
   body:   ["Paragraph one.", "Paragraph two."],   // shown in the modal
-  tags:   ["M365 Copilot", "Governance"],
-  link:   { href: "https://www.linkedin.com/posts/...", label: "Read on LinkedIn" },
+  takeaway: "Optional 'So what' panel.",
+  tags:   ["Microsoft Scout", "Agentic AI"],
+  stat:   "23 reactions · 2 comments",            // optional, shown in modal footer
+  link:   { href: "https://www.linkedin.com/feed/update/urn:li:activity:.../", label: "Read on LinkedIn" },
 },
 ```
 
 Leave `href` empty and the card shows *"Link coming soon"* rather than a dead link.
 
-Set your profile URL once, at the top of the file:
+**Keep this list to six.** Beyond that the slide stops fitting one viewport —
+retire the weakest post instead of adding a seventh.
 
-```js
-profile: { ..., linkedin: "https://www.linkedin.com/in/your-handle/" }
-```
+To get a permalink: open the post on LinkedIn → **…** menu → **Copy link**.
+Or note that LinkedIn activity IDs encode their own timestamp — `id >> 22n`
+gives milliseconds since epoch, which is how the dates here were derived.
 
 ### Add a field note
 
@@ -169,5 +172,9 @@ vendor/three.min.js     three.js r160.1, vendored
 
 ## Content safety
 
-Public site. No customer names, no tenant specifics, no internal data.
-Keep it that way when adding notes.
+Public site. Everything on it is drawn from the author's own public LinkedIn posts
+and published material. Some posts name Barclays — that is his own public
+wording, already on LinkedIn, and the Connect slide's disclaimer reflects this.
+
+Do not add anything confidential, internal-only, or non-public about a customer
+or tenant. If in doubt, leave it out.

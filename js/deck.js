@@ -183,6 +183,7 @@
     $("#m-body").innerHTML = body;
 
     var foot = (c.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
+    if (c.stat) foot += '<span class="stat">' + esc(c.stat) + "</span>";
 
     if (c.go) {
       var t = SLIDES.findIndex(function (s) { return s.id === c.go; });

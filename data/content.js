@@ -33,7 +33,7 @@ window.DECK = {
     role: "Solution Engineer",
     org: "AI Business Solutions · Microsoft",
     email: "anilh@microsoft.com",
-    linkedin: "", // ← paste your LinkedIn profile URL
+    linkedin: "https://www.linkedin.com/in/anilmadhok/",
   },
 
   slides: [
@@ -329,88 +329,126 @@ window.DECK = {
       scene: "wave",
       kicker: "From LinkedIn",
       title: "Written in public",
-      lede: "Open a card to read the full post.",
+      lede: "Open a card to read the post. Every one links back to the original.",
       /* ---------------------------------------------------------------
-         TO ADD A POST: copy a block, paste at the top, fill in the
-         fields. Set link.href to the LinkedIn permalink — until you do,
-         the card shows "Link coming soon" instead of a dead link.
+         TO ADD A POST
+         1. Open the post on LinkedIn, "..." menu, Copy link.
+         2. Copy a block below, paste it at the top of this array.
+         3. Fill in meta (date), title, teaser, body, tags, stat, link.
+         Keep this list to SIX. Beyond that the slide stops fitting one
+         viewport — retire the weakest instead of adding a seventh.
       --------------------------------------------------------------- */
       cards: [
         {
-          meta: "18 Aug 2026",
-          title: "Your Copilot usage report and your audit log disagree",
-          teaser: "Only one of them is right. Here's how to tell which.",
-          body: [
-            "Spent a week reconciling two views of the same tenant. One suggested almost nobody was using " +
-            "Copilot. The other showed a thousand-plus interactions and a healthy spread of agent traffic.",
-            "Here's how to work out which number belongs in front of your leadership team — and why the " +
-            "difference isn't a data quality bug, it's two tools answering two different questions.",
-          ],
-          tags: ["M365 Copilot", "Governance"],
-          link: { href: "", label: "Read on LinkedIn" },
-        },
-        {
           meta: "4 Aug 2026",
-          title: "I let an agent run my mornings for a month",
-          teaser: "Some of it was transformative. Some I switched off within a week.",
+          title: "I asked an agent to run a two-week content series, start to finish",
+          teaser: "Not 'AI writes your posts'. An honest split of what it did well and where I still had to do the work.",
           body: [
-            "Inbox triage, account refreshes, a dashboard rebuild at 7am, unattended. A month in, the pattern " +
-            "in what survived was clearer than I expected.",
-            "The jobs that stuck had a stable input and an obvious failure mode. The ones I killed needed me " +
-            "to check them, which meant they'd never really been automated at all.",
+            "I'm a Copilot Solution Engineer, not a marketer, so I wanted to see what an AI assistant could " +
+            "actually do with a real piece of work — not a demo prompt, the full thing. Research it, write it, " +
+            "design it, get it scheduled, then go back and check whether it worked. Ten posts, two weeks.",
+            "What it did: pulled from Microsoft's actual Learn docs so the content was grounded in real " +
+            "features; went through several rounds of edits with me on tone and length until it sounded like " +
+            "something I'd post; built the carousel decks and checked its own work for overlapping text before " +
+            "showing me; and afterwards pulled the real per-post numbers — 3,091 impressions and 56 reactions " +
+            "across the ten.",
+            "What stood out: when I asked it to add the Microsoft and Copilot logos, it stopped and told me it " +
+            "couldn't just take them off the internet — they're protected assets. It asked me to pull them from " +
+            "Brand Central myself. Small thing, but that's the bit that made me trust it more than the writing did.",
+            "Where I still did the work: tone, humour, and whether something would land was on me every time. " +
+            "It executes direction well; it doesn't set direction. And nothing went out without me hitting the " +
+            "button.",
+            "Bottom line — not 'AI writes your LinkedIn posts'. More like having someone useful do the research, " +
+            "drafting, design and reporting while I stayed in charge of tone, brand and anything published. That " +
+            "split is what made it worth using rather than just a good demo.",
           ],
-          tags: ["Microsoft Scout", "Adoption"],
-          link: { href: "", label: "Read on LinkedIn" },
+          takeaway:
+            "The useful division of labour isn't human-or-agent. It's agent executes, human sets direction and owns what ships.",
+          tags: ["Microsoft Scout", "Agentic AI"],
+          stat: "23 reactions · 2 comments · 2 reposts",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7490319123776745472/", label: "Read on LinkedIn" },
         },
         {
-          meta: "21 Jul 2026",
-          title: "Nobody's blocker is the model. It's the SharePoint estate.",
-          teaser: "Grounding quality is content hygiene, and it's finally visible to end users.",
+          meta: "27 Feb 2026",
+          title: "A week at the Microsoft AI Tour",
+          teaser: "Demos and leadership conversations around the Copilot Control System and Agent 365.",
           body: [
-            "Every 'Copilot gave a bad answer' conversation I've had this year ended in permissions, duplicates " +
-            "or labels.",
-            "The uncomfortable part is that none of this is new. It's just that the consequences used to be " +
-            "invisible, and now anyone in the business can surface them in a single prompt.",
+            "An amazing week began with the Microsoft AI Tour, featuring discussions and demos centred on the " +
+            "M365 Copilot Control System and Agent 365 — followed by leadership conversations with customers.",
+            "The Control System and Agent 365 were the two things people kept coming back to, which tracks: " +
+            "once agents are real, the questions stop being about capability and start being about control.",
           ],
-          tags: ["M365 Copilot", "Governance"],
-          link: { href: "", label: "Read on LinkedIn" },
+          tags: ["Agent 365", "M365 Copilot"],
+          stat: "90 reactions · 3 comments",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7433092328434712576/", label: "Read on LinkedIn" },
         },
         {
-          meta: "7 Jul 2026",
-          title: "Declarative agent or custom engine? Four questions.",
-          teaser: "Most teams build before they've picked a surface, then discover they chose wrong.",
+          meta: "30 Jan 2026",
+          title: "Agents aren't features — they're a workforce",
+          teaser: "AI everywhere doesn't equal an AI platform. Without design you get patchwork agents and shadow AI.",
           body: [
-            "Four questions get you to the right surface in an afternoon instead of a quarter: where does the " +
-            "user already are, who owns the knowledge, does it need to act, and what has to be auditable.",
-            "None of them are about the technology. All of them determine it.",
+            "Four points worth repeating: AI everywhere doesn't equal an AI platform. Without design, you get " +
+            "patchwork agents, accidental shadow AI and growing risk.",
+            "The shift we need is from impressive demos to durable, governable digital labour. Agents aren't " +
+            "features — they're a workforce. And workforces need identity, controls, intelligence and lifecycle " +
+            "management by design.",
           ],
-          tags: ["Copilot Studio", "M365 Copilot"],
-          link: { href: "", label: "Read on LinkedIn" },
+          takeaway: "If you wouldn't give a new starter system access without identity and a leaver process, don't give an agent one either.",
+          tags: ["Governance", "Agent 365"],
+          stat: "7 reactions · 1 repost",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7422951931943239680/", label: "Read on LinkedIn" },
         },
         {
-          meta: "23 Jun 2026",
-          title: "Cowork doesn't give you answers. It gives you a folder full of work.",
-          teaser: "A bigger shift than it sounds, and almost nobody is staffing for it.",
+          meta: "5 Jan 2026",
+          title: "Three months in as a Copilot Solution Engineer",
+          teaser: "Adoption initiatives, executive workshops and governance frameworks — going beyond the licence.",
           body: [
-            "The bottleneck stops being generation and becomes review. That's a genuinely good problem, but " +
-            "it's still a problem, and it lands on people who weren't warned it was coming.",
-            "Teams that plan the acceptance check up front get value immediately. Teams that don't end up with " +
-            "an impressive backlog of unread output.",
+            "Three months focused on driving customer success through AI-powered transformation: partnering " +
+            "with financial services clients to accelerate M365 Copilot and Copilot Studio use cases; executive " +
+            "workshops aligning priorities, shaping deployment strategies and enabling enterprise-grade " +
+            "governance frameworks.",
+            "Plus thought leadership on prompt engineering, governance models and reusable libraries — and " +
+            "working through 150-plus Ignite announcements.",
+            "Going into 2026 the theme is the same one that keeps proving itself: going beyond the licence.",
           ],
-          tags: ["Cowork"],
-          link: { href: "", label: "Read on LinkedIn" },
+          takeaway: "Deployment is the easy half. Adoption, governance and demonstrated value are the half that decides whether it lasts.",
+          tags: ["M365 Copilot", "Financial Services"],
+          stat: "61 reactions · 2 comments",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7413880568569942017/", label: "Read on LinkedIn" },
         },
         {
-          meta: "9 Jun 2026",
-          title: "The moment an agent can act for you, it becomes an HR problem",
-          teaser: "Identity, lifecycle and supervision questions — not maker-portal questions.",
+          meta: "1 Oct 2025",
+          title: "Seven years in banking, and a new chapter",
+          teaser: "Moving from seven years embedded at a UK bank to Copilot Solution Engineer at Microsoft.",
           body: [
-            "Who owns it, what can it touch, how do we see what it did, how do we retire it.",
-            "Every organisation already has answers to these questions for people. Very few have noticed they " +
-            "now need the same answers for software that acts on someone's behalf.",
+            "After seven years supporting Barclays Bank, I moved into a new role as a Copilot Solution Engineer " +
+            "at Microsoft.",
+            "Driving Microsoft solutions across the bank over those years was genuinely rewarding, and it's the " +
+            "grounding I bring to this work now — what regulated enterprise adoption actually looks like from " +
+            "the inside, rather than from a deck.",
           ],
-          tags: ["Agent 365", "Governance"],
-          link: { href: "", label: "Read on LinkedIn" },
+          takeaway: "Time spent inside a regulated customer is the difference between advising on governance and having lived it.",
+          tags: ["Career", "Financial Services"],
+          stat: "200 reactions · 29 comments",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7379062526048677888/", label: "Read on LinkedIn" },
+        },
+        {
+          meta: "25 Jul 2025",
+          title: "Moments that matter",
+          teaser: "Ten years at Microsoft, a 100,000-seat Copilot rollout, and a Circle of Excellence Gold Club award.",
+          body: [
+            "Twelve months of pivotal moments: a ten-year anniversary at Microsoft, a 100,000-colleague " +
+            "Microsoft 365 Copilot implementation, a 25th wedding anniversary — and Liverpool securing the " +
+            "Premier League title for the 20th time.",
+            "And being named a Circle of Excellence Gold Club winner at Microsoft. That recognition is a " +
+            "professional milestone, but mostly it highlights the team I get to work alongside every day.",
+            "Thanks to the leadership and sponsors, and to the people who shaped the journey — Dean for taking " +
+            "me under his wing when I joined, Simon and Gerry for being outstanding managers, and Jacqui for " +
+            "continued mentorship.",
+          ],
+          tags: ["Milestones", "Adoption at scale"],
+          stat: "216 reactions · 70 comments",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7354479208389087233/", label: "Read on LinkedIn" },
         },
       ],
     },
@@ -427,7 +465,7 @@ window.DECK = {
       lede:
         "I work in AI Business Solutions at Microsoft, helping enterprise customers move Copilot and " +
         "agents from an impressive demo to something that runs every day and holds up under scrutiny.",
-      note: "Views are my own and do not represent Microsoft. Nothing here contains customer or tenant-specific information.",
+      note: "Views are my own and do not represent Microsoft. Everything here is drawn from my own public posts and published material — nothing confidential, and no non-public customer or tenant detail.",
     },
 
   ],

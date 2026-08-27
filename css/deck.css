@@ -498,11 +498,17 @@ button { font: inherit; color: inherit; }
   padding: 4px 10px; border-radius: var(--r-circ);
   border: 1px solid var(--stroke); background: rgba(255,255,255,.04); color: var(--fg-3);
 }
+.stat {
+  font-family: var(--mono); font-size: var(--f-caption2); letter-spacing: .06em;
+  color: hsl(var(--m-hue, var(--hue)) 92% 70%); opacity: .9;
+}
 .modal-link {
   margin-left: auto; font-family: var(--mono); font-size: var(--f-caption1); letter-spacing: .07em;
   color: hsl(var(--m-hue, var(--hue)) 92% 70%); text-decoration: none;
-  display: inline-flex; align-items: center; gap: 7px;
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;
+  background: none; border: 0; cursor: pointer; padding: 0;
 }
+.modal-link svg { width: 13px; height: 13px; flex: none; }
 .modal-link:hover { text-decoration: underline; }
 .modal-link.is-off { color: var(--fg-3); pointer-events: none; }
 
