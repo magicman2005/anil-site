@@ -616,7 +616,7 @@ window.DECK = {
         "I'm a Senior M365 Copilot & Agent Solution Engineer at Microsoft, working with " +
         "enterprise customers to move Copilot and agents from an impressive demo to something " +
         "that runs every day and holds up under scrutiny.",
-      note: "Views are my own and do not represent Microsoft. Everything here is drawn from my own public posts and published material — nothing confidential, and no non-public customer or tenant detail.",
+      note: "© {year} Anil Madhok. Views are my own and do not represent Microsoft. Everything here is drawn from my own public posts and published material — nothing confidential, and no non-public customer or tenant detail.",
     },
 
   ],

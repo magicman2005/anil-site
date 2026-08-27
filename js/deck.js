@@ -20,7 +20,8 @@
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;")
+      .replace(/\{year\}/g, new Date().getFullYear());
   }
 
   var ICON = {
@@ -381,6 +382,10 @@
   /* ---------- boot ---------- */
 
   function boot() {
+    // Year in the copyright line — set from the clock so it never goes stale.
+    var y = $("#year");
+    if (y) y.textContent = new Date().getFullYear();
+
     // Resolve the deep link FIRST: evalMode() calls go(), which rewrites the
     // hash, so reading location.hash afterwards would always see "#home".
     var start = 0;
