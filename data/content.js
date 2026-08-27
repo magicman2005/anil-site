@@ -45,7 +45,7 @@ window.DECK = {
       kind: "home",
       label: "Home",
       hue: 210,
-      scene: "sphere",
+      scene: "word",
       identity: true,
       title: "What actually happens\nafter you turn it on.",
       lede:

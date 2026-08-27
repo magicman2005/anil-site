@@ -21,6 +21,7 @@ window.Atmosphere = (function () {
   var curHue = 210, tgtHue = 210;
   var camTgt, camCur;
   var running = false, reduced = false, raf = null;
+  var flat = false, spinBlend = 0;
   var pointer = { x: 0, y: 0, tx: 0, ty: 0 };
   var clock = 0;
 
@@ -88,10 +89,57 @@ window.Atmosphere = (function () {
     }
   }
 
+  /* The word "Copilot", sampled from rendered type into the point cloud.
+     Home only. Sits low in the frame because the headline and card grid
+     occupy the middle band — centred, the word is almost entirely hidden. */
+  function fWord(a) {
+    var WORD = "Copilot";
+    var W = 1024, H = 256;
+    var c = document.createElement("canvas");
+    c.width = W; c.height = H;
+    var g = c.getContext("2d");
+    g.fillStyle = "#fff";
+    g.textAlign = "center";
+    g.textBaseline = "middle";
+
+    var size = 190;
+    var font = function (s) {
+      return '700 ' + s + 'px "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif';
+    };
+    g.font = font(size);
+    while (g.measureText(WORD).width > W * 0.92 && size > 20) {
+      size -= 4;
+      g.font = font(size);
+    }
+    g.fillText(WORD, W / 2, H / 2);
+
+    var d = g.getImageData(0, 0, W, H).data;
+    var pts = [];
+    for (var y = 0; y < H; y += 2) {
+      for (var x = 0; x < W; x += 2) {
+        if (d[(y * W + x) * 4 + 3] > 60) pts.push([x, y]);
+      }
+    }
+    if (!pts.length) { fSphere(a); return; }
+
+    var SPAN = 64, LIFT = -13.5;
+    for (var i = 0; i < N; i++) {
+      var p = pts[(Math.random() * pts.length) | 0];
+      a[i * 3]     = ((p[0] + (Math.random() - .5) * 2) / W - 0.5) * SPAN;
+      a[i * 3 + 1] = -((p[1] + (Math.random() - .5) * 2) / H - 0.5) * (SPAN * 0.25) + LIFT;
+      a[i * 3 + 2] = (Math.random() - .5) * 3;   // shallow: depth mushes the letterforms
+    }
+  }
+
   var BUILDERS = {
     sphere: fSphere, grid: fGrid, helix: fHelix,
-    wave: fWave, ring: fRing, scatter: fScatter,
+    wave: fWave, ring: fRing, scatter: fScatter, word: fWord,
   };
+
+  // Formations that spell something have to stay roughly face-on. A full spin
+  // turns the word edge-on for most of each revolution, where it collapses to
+  // a bar. These sway instead.
+  var FLAT = { word: true };
 
   var CAMS = {
     sphere:  { x: 0,   y: 2,   z: 46 },
@@ -100,6 +148,7 @@ window.Atmosphere = (function () {
     wave:    { x: 0,   y: 13,  z: 40 },
     ring:    { x: 0,   y: 11,  z: 44 },
     scatter: { x: 0,   y: 0,   z: 48 },
+    word:    { x: 0,   y: -8,  z: 46 },
   };
 
   /* ---------- soft round sprite so points aren't squares ---------- */
@@ -240,6 +289,7 @@ window.Atmosphere = (function () {
     if (!renderer) return;
     var f = forms[form] || forms.sphere;
     target.set(f);
+    flat = !!FLAT[form];
     var c = CAMS[form] || CAMS.sphere;
     camTgt = { x: c.x, y: c.y, z: c.z };
     tgtHue = hue;
@@ -293,8 +343,13 @@ window.Atmosphere = (function () {
       camCur.z
     );
 
-    group.rotation.y = clock * 0.42;
-    group.rotation.x = Math.sin(clock * 0.5) * 0.07;
+    // A flat formation sways so it stays legible; everything else spins.
+    // Eased, so the two behaviours blend rather than snap on slide change.
+    spinBlend += ((flat ? 1 : 0) - spinBlend) * 0.05;
+    var spin = clock * 0.42;
+    var sway = Math.sin(clock * 0.55) * 0.30;
+    group.rotation.y = spin * (1 - spinBlend) + sway * spinBlend;
+    group.rotation.x = Math.sin(clock * 0.5) * 0.07 * (1 - spinBlend * 0.7);
     shell.rotation.y = -clock * 0.7;
     shell.rotation.z = clock * 0.28;
 
