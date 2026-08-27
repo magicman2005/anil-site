@@ -159,11 +159,8 @@ python -m http.server 8099   # then open http://localhost:8099
 
 ## Deploying
 
-See **[DEPLOY.md](DEPLOY.md)** for the full guide, including the DNS records and
-
-Short version: the site is static and self-contained, so drag the folder into
-Cloudflare Pages, or push to a personal GitHub account and enable Pages. No
-build step either way.
+See **[DEPLOY.md](DEPLOY.md)**. Short version: push to `main` and GitHub Pages
+rebuilds. No build step.
 
 ---
 
@@ -238,16 +235,13 @@ sound written rather than lived.
 
 ## Keeping it current
 
-Posts arrive in bursts, so the site drifts stale without a nudge.
-A scheduled assistant task runs weekly,
-scans LinkedIn for posts published since the site was last updated and sends a
-Teams proposal with ready-to-paste card blocks.
+Posts arrive in bursts, so the site drifts stale without a nudge. A scheduled
+assistant task runs weekly, scans LinkedIn for posts published since the site
+was last updated, and sends a proposal with ready-to-paste card blocks.
 
 It **proposes only, never edits.** The author decides what ships.
 
-It is silent when there is nothing new, so most weeks send nothing. It is pinned
-signed-in LinkedIn browser session lives; if the session expires it says so and
-stops rather than guessing credentials.
+It is silent when there is nothing new, so most weeks send nothing.
 
 The diffing is deterministic rather than left to judgement:
 
