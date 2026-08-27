@@ -219,7 +219,32 @@ button { font: inherit; color: inherit; }
 }
 
 .home-copy .s-title { font-size: clamp(34px, 5vw, 68px); font-weight: 680; }
-.home-copy .s-lede { font-size: clamp(15px, 1.3vw, 19px); max-width: 42ch; }
+.home-copy .s-lede { font-size: clamp(15px, 1.3vw, 19px); max-width: 44ch; }
+
+/* identity strip — portrait, name, role */
+.ident {
+  display: flex; align-items: center; gap: 15px;
+  margin-bottom: clamp(16px, 2.4vh, 28px);
+}
+.ident-img {
+  width: clamp(52px, 4.4vw, 66px); height: clamp(52px, 4.4vw, 66px);
+  border-radius: var(--r-circ); object-fit: cover; flex: none; display: block;
+  border: 1px solid var(--stroke-2);
+  box-shadow: 0 0 0 3px hsl(var(--hue) 92% 60% / .16), var(--sh8);
+  transition: box-shadow var(--d-slower) var(--c-ease);
+}
+.ident-img.is-off { display: none; }
+
+.ident-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ident-txt strong {
+  font-family: var(--sans); font-size: clamp(15px, 1.15vw, 17px);
+  font-weight: 640; letter-spacing: -.01em;
+}
+.ident-txt span {
+  font-family: var(--mono); font-size: clamp(10.5px, .8vw, 11.5px);
+  letter-spacing: .05em; color: var(--fg-3); line-height: 1.42;
+}
+.ident-txt span:first-of-type { color: var(--accent); transition: color var(--d-slower) var(--c-ease); }
 
 .home-hint {
   margin-top: clamp(20px, 3.4vh, 40px);
@@ -614,6 +639,25 @@ html.stack .slide[data-kind="connect"] { text-align: left; justify-items: start;
 html.stack .slide[data-kind="statement"] .s-lede,
 html.stack .slide[data-kind="connect"] .s-lede { text-align: left; margin-inline: 0; }
 html.stack .actions { justify-content: flex-start; }
+/* The identity block sits directly below the chrome here and carries the full
+   role, so the header's copy would just be a wrapped duplicate. */
+html.stack .brand-txt small { display: none; }
+
+/* Stacked home on a short viewport: reclaim the last few pixels rather than
+   letting the copy block push the card grid past the fold. */
+@media (max-width: 1080px) and (max-height: 820px) {
+  .slide[data-kind="home"] { gap: 14px; }
+  .slide[data-kind="home"] .s-title { font-size: clamp(26px, 4vw, 36px); }
+  .slide[data-kind="home"] .s-lede { font-size: 14px; margin-top: 10px; }
+  .ident { margin-bottom: 10px; }
+  .ident-img { width: 48px; height: 48px; }
+  /* Five home cards stack into three rows here — compact them the same way
+     the dense Posts grid compacts, so the copy block isn't what gets cut. */
+  .slide[data-kind="home"] .card { padding: 12px 14px; gap: 5px; }
+  .slide[data-kind="home"] .c-teaser { display: none; }
+  .slide[data-kind="home"] .c-title { font-size: 15px; -webkit-line-clamp: 2; line-clamp: 2; }
+  .slide[data-kind="home"] .c-go { padding-top: 6px; }
+}
 
 /* ── compact heights ─────────────────────────────────────── */
 
@@ -631,6 +675,10 @@ html.stack .actions { justify-content: flex-start; }
 
 @media (max-width: 1080px) {
   .slide[data-kind="home"] { grid-template-columns: 1fr; gap: 24px; }
+  /* Stacked home puts copy above the cards, so the copy block has to give. */
+  .slide[data-kind="home"] .s-title { font-size: clamp(28px, 4.6vw, 44px); }
+  .slide[data-kind="home"] .home-hint { display: none; }
+  .ident { margin-bottom: 14px; }
   .cards[data-n="5"], .cards[data-n="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cards[data-n="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cards[data-n="4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }

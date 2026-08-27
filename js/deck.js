@@ -61,8 +61,24 @@
     var inner = "";
 
     if (s.kind === "home") {
+      var pr = D.profile;
+      var ident = s.identity
+        ? '<div class="ident">' +
+            (pr.portrait
+              ? '<img class="ident-img" src="' + esc(pr.portrait) + '" alt="' + esc(pr.name) + '" ' +
+                'onerror="this.classList.add(\'is-off\')" />'
+              : "") +
+            '<span class="ident-txt">' +
+              "<strong>" + esc(pr.name) + "</strong>" +
+              "<span>" + esc(pr.role) + "</span>" +
+              "<span>" + esc(pr.org) + "</span>" +
+            "</span>" +
+          "</div>"
+        : "";
+
       inner =
         '<div class="home-copy">' +
+          ident +
           (s.kicker ? '<p class="kicker">' + esc(s.kicker) + '</p>' : '') +
           '<h2 class="s-title">' + esc(s.title) + '</h2>' +
           (s.lede ? '<p class="s-lede">' + esc(s.lede) + '</p>' : '') +
@@ -254,8 +270,15 @@
     if (best !== idx) go(best, { silent: true });
   }
 
+  function wantStack() {
+    var w = window.innerWidth, h = window.innerHeight;
+    // Phones and very short viewports, plus small resized windows where a
+    // fixed-viewport deck stops being usable at all.
+    return w < 720 || h < 480 || (w < 820 && h < 600);
+  }
+
   function evalMode() {
-    var want = window.innerWidth < 720 || window.innerHeight < 480;
+    var want = wantStack();
     if (want === stackMode) return;
     stackMode = want;
     document.documentElement.classList.toggle("stack", stackMode);
@@ -381,7 +404,7 @@
       if (window.__atmoOK) window.Atmosphere.setReduced(reduced);
     });
 
-    stackMode = !(window.innerWidth < 720 || window.innerHeight < 480);
+    stackMode = !wantStack();
     evalMode();
 
     go(start, { silent: true });

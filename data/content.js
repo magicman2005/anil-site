@@ -30,10 +30,11 @@ window.DECK = {
 
   profile: {
     name: "Anil Madhok",
-    role: "Solution Engineer",
+    role: "Senior M365 Copilot & Agent Solution Engineer",
     org: "AI Business Solutions · Microsoft",
     email: "anilh@microsoft.com",
     linkedin: "https://www.linkedin.com/in/anilmadhok/",
+    portrait: "assets/anil.jpg",
   },
 
   slides: [
@@ -45,11 +46,12 @@ window.DECK = {
       label: "Home",
       hue: 210,
       scene: "sphere",
-      kicker: "Microsoft 365 Copilot · Cowork · Scout · Copilot Studio",
+      identity: true,
       title: "What actually happens\nafter you turn it on.",
       lede:
-        "I put Copilot and agents into real tenants, then write down the part that isn't " +
-        "in the deck — what worked, what broke, and what the demo quietly skipped.",
+        "I work with customers on the art of the possible with Copilot and agents — then write " +
+        "down the part that isn't in the deck: what worked, what broke, and what the demo " +
+        "quietly skipped.",
       cards: [
         {
           meta: "01",
@@ -610,8 +612,9 @@ window.DECK = {
       kicker: "Connect",
       title: "I'd rather show you\nthan tell you.",
       lede:
-        "I work in AI Business Solutions at Microsoft, helping enterprise customers move Copilot and " +
-        "agents from an impressive demo to something that runs every day and holds up under scrutiny.",
+        "I'm a Senior M365 Copilot & Agent Solution Engineer at Microsoft, working with " +
+        "enterprise customers to move Copilot and agents from an impressive demo to something " +
+        "that runs every day and holds up under scrutiny.",
       note: "Views are my own and do not represent Microsoft. Everything here is drawn from my own public posts and published material — nothing confidential, and no non-public customer or tenant detail.",
     },
 
