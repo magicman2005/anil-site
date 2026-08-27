@@ -7,6 +7,17 @@ Fixed-viewport slides, Fluent 2 styling, a live three.js atmosphere layer, and
 modal deep-dives. **No build step, no npm, no CDN.** Open `index.html` directly
 or serve the folder — both work.
 
+## The deck
+
+Seven slides, deliberately: **Home → M365 Copilot → Cowork → Scout →
+Copilot Studio → Posts → Connect.**
+
+Home is the control center — five cards, each opening a modal for detail or
+jumping to the full slide. Every other slide holds 2–3 cards. Nothing scrolls.
+
+Each slide has `#id` deep links (`/#cowork`), so you can hand someone a link
+that opens exactly where you want them.
+
 ---
 
 ## Design principles
@@ -92,7 +103,7 @@ slide inside one viewport.
 | `→` `↓` `PageDown` `Space` | Next slide |
 | `←` `↑` `PageUp` | Previous slide |
 | `Home` / `End` | First / last |
-| `1`–`9`, `0` | Jump to slide |
+| `1`–`7` | Jump to slide |
 | `Esc` | Close modal |
 | Swipe | Next / previous (touch) |
 | Progress dots, arrows | Click |
@@ -150,7 +161,11 @@ vendor/three.min.js     three.js r160.1, vendored
   become scrollable sections, dots follow scroll position.
 - **Modals** trap Tab, close on `Esc` or scrim click, and restore focus to the
   card that opened them.
-- Verified with zero slide overflow at 1440×900, 1366×768 and 1280×620.
+- **Deep links resolve before first render.** `evalMode()` calls `go()`, which
+  rewrites the hash — so the intended slide is captured at the very top of
+  `boot()`, before anything else runs.
+- Verified with zero slide overflow at 1920×1080, 1440×900, 1366×768,
+  1280×620 and 1024×768.
 
 ## Content safety
 

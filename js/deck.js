@@ -331,6 +331,16 @@
   /* ---------- boot ---------- */
 
   function boot() {
+    // Resolve the deep link FIRST: evalMode() calls go(), which rewrites the
+    // hash, so reading location.hash afterwards would always see "#home".
+    var start = 0;
+    if (location.hash) {
+      var h = location.hash.slice(1);
+      var f = SLIDES.findIndex(function (s) { return s.id === h; });
+      if (f > -1) start = f;
+    }
+    idx = start;
+
     build();
     modal = $("#modal");
     bind();
@@ -347,14 +357,17 @@
     stackMode = !(window.innerWidth < 720 || window.innerHeight < 480);
     evalMode();
 
-    var start = 0;
-    if (location.hash) {
-      var h = location.hash.slice(1);
-      var f = SLIDES.findIndex(function (s) { return s.id === h; });
-      if (f > -1) start = f;
-    }
     go(start, { silent: true });
-    if (stackMode) requestAnimationFrame(syncFromScroll);
+
+    if (stackMode) {
+      if (start > 0) {
+        // Slides are generated after parse, so the browser never resolved the
+        // anchor itself — jump to it, then let scroll sync take over.
+        var el = document.getElementById(SLIDES[start].id);
+        if (el) el.scrollIntoView({ behavior: "auto" });
+      }
+      requestAnimationFrame(syncFromScroll);
+    }
 
     document.body.classList.add("ready");
   }

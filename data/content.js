@@ -45,7 +45,7 @@ window.DECK = {
       label: "Home",
       hue: 210,
       scene: "sphere",
-      kicker: "Microsoft 365 Copilot · Cowork · Scout · Copilot Studio · Agent 365",
+      kicker: "Microsoft 365 Copilot · Cowork · Scout · Copilot Studio",
       title: "What actually happens\nafter you turn it on.",
       lede:
         "I put Copilot and agents into real tenants, then write down the part that isn't " +
@@ -108,20 +108,6 @@ window.DECK = {
         },
         {
           meta: "05",
-          title: "Agent 365 & Governance",
-          teaser: "The moment an agent acts for you, it becomes an HR question.",
-          body: [
-            "Ownership, permissions, observability, retirement. These are identity and lifecycle questions, " +
-            "and organisations already know how to answer them — for people.",
-            "Add model attribution and AI posture management, and you have the control plane that lets a " +
-            "governance team say yes rather than 'not yet'.",
-          ],
-          takeaway: "Build governance while the estate is small. Retrofitting it is the expensive path.",
-          go: "governance",
-          hue: 320,
-        },
-        {
-          meta: "06",
           title: "Written in public",
           teaser: "Posts on rollout reality, agent governance, and capability versus habit.",
           body: [
@@ -136,25 +122,6 @@ window.DECK = {
     },
 
     /* ── 1 ───────────────────────────────────────────────── */
-    {
-      id: "thesis",
-      kind: "statement",
-      label: "Thesis",
-      hue: 250,
-      scene: "wave",
-      kicker: "The thesis",
-      title: "Capability lands on day one.\nHabit doesn't.",
-      lede:
-        "Almost every stalled rollout I've worked was diagnosed as a technology problem and " +
-        "turned out to be a content, measurement or governance problem wearing a technology costume.",
-      facts: [
-        { k: "Tenant-first", v: "Every note here comes from a live deployment, not a lab" },
-        { k: "Evidence-led", v: "Audit logs over adoption slideware" },
-        { k: "Governed", v: "Identity, lifecycle and supervision from day one" },
-      ],
-    },
-
-    /* ── 2 ───────────────────────────────────────────────── */
     {
       id: "m365",
       kind: "cards",
@@ -212,7 +179,7 @@ window.DECK = {
       ],
     },
 
-    /* ── 3 ───────────────────────────────────────────────── */
+    /* ── 2 ───────────────────────────────────────────────── */
     {
       id: "cowork",
       kind: "cards",
@@ -252,7 +219,7 @@ window.DECK = {
       ],
     },
 
-    /* ── 4 ───────────────────────────────────────────────── */
+    /* ── 3 ───────────────────────────────────────────────── */
     {
       id: "scout",
       kind: "cards",
@@ -295,7 +262,7 @@ window.DECK = {
       ],
     },
 
-    /* ── 5 ───────────────────────────────────────────────── */
+    /* ── 4 ───────────────────────────────────────────────── */
     {
       id: "studio",
       kind: "cards",
@@ -335,20 +302,6 @@ window.DECK = {
           takeaway: "Spend the first sprint on the knowledge boundary, not the orchestration graph.",
           tags: ["Knowledge", "Quality"],
         },
-      ],
-    },
-
-    /* ── 6 ───────────────────────────────────────────────── */
-    {
-      id: "governance",
-      kind: "cards",
-      label: "Governance",
-      hue: 320,
-      scene: "grid",
-      kicker: "Field notes",
-      title: "Agent 365 & Governance",
-      lede: "Treat agents as workforce, not features.",
-      cards: [
         {
           meta: "Aug 2026",
           title: "The moment an agent can act for you, it becomes an HR question",
@@ -358,41 +311,16 @@ window.DECK = {
             "lifecycle and supervision questions — the same ones any organisation already asks about people " +
             "with system access.",
             "Retrofitting that after a successful pilot is dramatically more expensive than building it in " +
-            "while the estate is small.",
+            "while the estate is small — and it's the difference between a governance team saying 'yes' and " +
+            "saying 'not yet'.",
           ],
           takeaway: "Give every agent an owner, an identity and an off-switch on day one.",
-          tags: ["Agent 365", "Identity"],
-        },
-        {
-          meta: "Jul 2026",
-          title: "Knowing which model answered is becoming a compliance question",
-          teaser: "'The AI said so' is no longer a sufficient audit trail.",
-          body: [
-            "As routing spreads across model families and providers, regulated customers increasingly want the " +
-            "answer they'd expect of any other processor: which system handled this, under what terms, and can " +
-            "you evidence it.",
-            "Model attribution is a five-minute report to stand up today. It will not stay optional.",
-          ],
-          takeaway: "Capture model attribution alongside the interaction, before someone asks you to.",
-          tags: ["Compliance", "Audit"],
-        },
-        {
-          meta: "Jun 2026",
-          title: "The AI control plane most rollouts skip",
-          teaser: "Scheduled for phase two, needed in phase one.",
-          body: [
-            "AI posture and risk tooling tends to get deferred. Then phase one goes well, usage grows, and " +
-            "someone senior asks a question about sensitive-data exposure that nobody can answer with evidence.",
-            "The window where remediation is cheap is exactly the window where the pilot feels too small to " +
-            "bother.",
-          ],
-          takeaway: "Stand up AI posture management during the pilot, while the estate is small enough to fix.",
-          tags: ["Purview", "Risk"],
+          tags: ["Agent 365", "Governance"],
         },
       ],
     },
 
-    /* ── 7 ───────────────────────────────────────────────── */
+    /* ── 5 ───────────────────────────────────────────────── */
     {
       id: "posts",
       kind: "cards",
@@ -487,80 +415,7 @@ window.DECK = {
       ],
     },
 
-    /* ── 8 ───────────────────────────────────────────────── */
-    {
-      id: "builds",
-      kind: "cards",
-      label: "Builds",
-      hue: 42,
-      scene: "ring",
-      kicker: "Builds",
-      title: "Opinions are cheaper than working software",
-      lede: "Each one exists because a customer question couldn't be answered with a slide.",
-      cards: [
-        {
-          meta: "Governance tooling",
-          title: "Copilot model transparency reporting",
-          teaser: "Which model, from which provider, answered each prompt.",
-          body: [
-            "A weekly report answering a question regulated customers keep asking: which model, from which " +
-            "provider, handled each Copilot prompt.",
-            "Built on audit-log model attribution and paired with Purview AI posture management, communication " +
-            "compliance and retention, so the answer holds up in a review rather than just on a dashboard.",
-          ],
-          tags: ["Purview", "Audit logs", "M365 Copilot"],
-        },
-        {
-          meta: "Analytics",
-          title: "Modern workforce dashboard",
-          teaser: "Service health, licences, Copilot usage and consumption cost in one view.",
-          body: [
-            "An interactive view built for an IT leader in an all-Microsoft estate: service health, active " +
-            "users, licence utilisation, Copilot and agent usage, and the consumption costs that arrive " +
-            "alongside them.",
-            "The point wasn't new data. It was ending the tab-switching across five portals that made nobody " +
-            "able to answer a simple question quickly.",
-          ],
-          tags: ["Graph", "Power BI", "Sentinel"],
-        },
-        {
-          meta: "Agentic automation",
-          title: "Agent-refreshed account intelligence",
-          teaser: "A dashboard that rebuilds itself every morning.",
-          body: [
-            "An agent sweeps mail, meetings, chat and CRM signals overnight, writes deltas into a single page, " +
-            "and flags what changed since yesterday.",
-            "Preparation stops being a manual archaeology exercise, which is the entire value — the dashboard " +
-            "is just where the output lands.",
-          ],
-          tags: ["Microsoft Scout", "Graph", "Dynamics"],
-        },
-        {
-          meta: "Internal tooling",
-          title: "Mission control",
-          teaser: "One page indexing every automation, dashboard and demo I run.",
-          body: [
-            "Built after realising the real cost of agentic output isn't producing it — it's finding it again " +
-            "three weeks later.",
-            "The most useful tool I've made, and by some distance the least sophisticated.",
-          ],
-          tags: ["Microsoft Scout", "HTML"],
-        },
-        {
-          meta: "Demo engineering",
-          title: "Copilot usage simulation harness",
-          teaser: "Realistic Copilot and agent traffic, so governance tooling has something true to show.",
-          body: [
-            "A generator that drives realistic Copilot and agent traffic through a demo tenant.",
-            "Usage analytics, audit trails and governance tooling can then be demonstrated against data that " +
-            "behaves like the real thing, instead of against an empty tenant that proves nothing.",
-          ],
-          tags: ["Graph", "Copilot", "Automation"],
-        },
-      ],
-    },
-
-    /* ── 9 ───────────────────────────────────────────────── */
+    /* ── 6 ───────────────────────────────────────────────── */
     {
       id: "connect",
       kind: "connect",

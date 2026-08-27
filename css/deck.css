@@ -241,6 +241,10 @@ button { font: inherit; color: inherit; }
 .cards[data-n="6"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .slide[data-kind="home"] .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+/* Odd card count on home: let the last one span so the grid reads intentional. */
+.slide[data-kind="home"] .cards[data-n="3"] .card:last-child,
+.slide[data-kind="home"] .cards[data-n="5"] .card:last-child { grid-column: 1 / -1; }
+
 /* Cards on note slides carry the frame — give them real presence. */
 .slide[data-kind="cards"] .card { min-height: clamp(190px, 29vh, 290px); }
 .slide[data-kind="cards"] .cards[data-n="5"] .card,
