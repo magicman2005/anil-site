@@ -45,7 +45,7 @@ window.DECK = {
       kind: "home",
       label: "Home",
       hue: 210,
-      scene: "word",
+      scene: "sphere",
       identity: true,
       title: "What actually happens\nafter you turn it on.",
       lede:
@@ -609,7 +609,7 @@ window.DECK = {
       kind: "connect",
       label: "Connect",
       hue: 210,
-      scene: "sphere",
+      scene: "word",
       kicker: "Connect",
       title: "I'd rather show you\nthan tell you.",
       lede:
