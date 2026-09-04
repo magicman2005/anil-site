@@ -395,11 +395,39 @@ window.DECK = {
       --------------------------------------------------------------- */
       cards: [
         {
-          meta: "Aug 2026 · running now",
-          title: "Trust, Familiarity, Completeness",
-          teaser: "A live series on why AI lands better inside the tools people already have than as one more app.",
+          meta: "1 Sep 2026 · Field Notes",
+          title: "What actually stalls a Copilot rollout",
+          teaser: "The first issue of Field Notes. Most rollouts don't fail — they quietly stop, and nobody notices in the moment.",
           body: [
-            "A short series running right now, making the case for AI that lives where the work already happens " +
+            "I started a newsletter, Field Notes, for the things I keep seeing on rollouts that don't fit in a " +
+            "post. First issue is about the way Copilot programmes stall.",
+            "Most of them don't fail. No memo goes out, no rollback, no failed go-live anyone can point to. " +
+            "Usage plateaus below where it should be, attention moves to the next thing, and eighteen months " +
+            "later someone in procurement asks why the licence spend doesn't match the number of people " +
+            "actually using it. A slow stall doesn't trigger the same alarm a hard failure would.",
+            "Three things come up every time, and none of them are about the technology. Licence-first " +
+            "thinking, where seats get assigned broadly and that gets called the deployment — it looks like " +
+            "progress, but assigning a licence and driving adoption are two different jobs and only one of " +
+            "them has happened. Permissions debt, where a decade of over-generous sharing was never a problem " +
+            "because nothing was good enough at finding it; Copilot didn't cause that, it just finds it, " +
+            "usually when leadership is watching closest. And no baseline — nobody measured how long the " +
+            "process took before, so nobody can prove it's faster now.",
+            "The rollouts I've seen recover all did the same thing: treated it as a change programme with a " +
+            "technology component, rather than a technology programme with change management bolted on at " +
+            "the end.",
+          ],
+          takeaway:
+            "Fixing permissions before go-live is a clean-up job. Fixing them after go-live is a crisis.",
+          tags: ["M365 Copilot", "Adoption", "Newsletter"],
+          stat: "156 impressions · 2 reactions",
+          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7500455002197577728/", label: "Read on LinkedIn" },
+        },
+        {
+          meta: "Aug 2026 · series · 3 parts",
+          title: "Trust, Familiarity, Completeness",
+          teaser: "A three-part series on why AI lands better inside the tools people already have than as one more app.",
+          body: [
+            "A short series making the case for AI that lives where the work already happens " +
             "rather than arriving as a separate destination.",
             "Trust: the new colleague who already knows the rules. Familiarity: not one more app nobody " +
             "remembers the password for. Completeness: find it, chat about it, get it done — same building.",
@@ -586,19 +614,6 @@ window.DECK = {
           tags: ["Financial Services", "Partnership"],
           stat: "185 reactions · 4 reposts",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7350898127198949377/", label: "Read on LinkedIn" },
-        },
-        {
-          meta: "19 Jun 2025",
-          title: "It's Happening Here, at Radbroke",
-          teaser: "A day of questions and discussion with colleagues at the bank. Roll on London.",
-          body: [
-            "Another It's Happening Here event at Barclays Radbroke — an enjoyable and productive day, well " +
-            "attended, with plenty of interaction, questions and discussion with colleagues at the bank.",
-            "Roll on London. Supported on the day by the wider Microsoft team.",
-          ],
-          tags: ["Financial Services", "Events"],
-          stat: "83 reactions · 1 repost",
-          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7341362052537450496/", label: "Read on LinkedIn" },
         },
       ],
     },

@@ -182,6 +182,60 @@ assets/og.jpg           1200×630 social card
 vendor/three.min.js     three.js r160.1, vendored
 ```
 
+## Analytics
+
+**GoatCounter**, live at [magicman12.goatcounter.com](https://magicman12.goatcounter.com) —
+cookieless, about 3.5 KB, and no consent banner needed under UK PECR/GDPR
+because it sets no cookies and stores no personal data.
+
+The code lives in one line in `index.html`:
+
+```js
+var GC_CODE = "magicman12";   // the "xxxx" in xxxx.goatcounter.com
+```
+
+Blank it to switch analytics off completely: nothing is loaded, no external
+request is made, and `window.__track()` becomes a no-op. The deck behaves
+identically either way.
+
+Nothing is counted from `localhost` — GoatCounter refuses local hostnames by
+design, so working on the site never pollutes the stats.
+
+**Why events and not pageviews.** The whole deck is one HTML file, so every
+visitor produces exactly one pageview whether they bounce off the home slide or
+read every card. Plain pageview analytics would say almost nothing. Two hooks
+fix that:
+
+| Hook | Fires | Sent as |
+|---|---|---|
+| `go()` in `js/deck.js` | every slide change, including the first | `slide/<id>` |
+| `openModal()` in `js/deck.js` | every card opened | `card/<slide>/<title>` |
+
+Both are sent as GoatCounter **events**, so they stay in the Events tab and never
+inflate the visit count. Each is counted **once per page load** — the question
+worth answering is what share of visitors reached a slide, not how often someone
+swiped back and forth.
+
+Two things that would otherwise bite:
+
+- `go()` uses `history.replaceState`, not `pushState`. Tools that auto-track SPA
+  routes listen for `pushState`/`popstate` and would silently record nothing, so
+  the call is explicit.
+- The tracker is injected asynchronously, so the first slide event usually fires
+  before it has loaded. Early calls are queued and flushed on load rather than
+  dropped — otherwise the most important event, the entry slide, would be the one
+  most often lost.
+
+Analytics must never break the deck: every call is wrapped, and `deck.js` checks
+`window.__track` exists before calling it.
+
+**Traffic sources.** Almost all visits arrive from LinkedIn, which reports only
+as `linkedin.com`. Add UTM tags to the profile link and to links in Field Notes
+issues if you want to tell the newsletter apart from the profile.
+
+GitHub Pages itself offers no traffic data. Repo → Insights → Traffic counts
+views of the GitHub repo page, not visits to the site.
+
 ## Implementation notes
 
 - **Classic scripts, not ES modules**, so the deck also runs from `file://`.

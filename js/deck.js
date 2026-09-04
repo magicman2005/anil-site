@@ -176,6 +176,8 @@
     $("#live").textContent = "Slide " + (i + 1) + " of " + SLIDES.length + ": " + s.label;
 
     try { history.replaceState(null, "", "#" + s.id); } catch (e) { /* file:// */ }
+
+    if (window.__track) window.__track("slide/" + s.id, "Slide — " + s.label);
   }
 
   var next = function () { go(idx + 1); };
@@ -189,6 +191,10 @@
     var c = slide.cards[ci];
     var hue = c.hue == null ? slide.hue : c.hue;
     lastFocus = trigger || null;
+
+    if (window.__track) {
+      window.__track("card/" + slide.id + "/" + (c.title || ci), "Card — " + (c.title || slide.label));
+    }
 
     modal.style.setProperty("--m-hue", hue);
     $("#m-meta").textContent = c.meta || slide.label;

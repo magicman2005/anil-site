@@ -114,8 +114,57 @@
 
 <p class="sr" id="live" aria-live="polite" role="status"></p>
 
-<script src="data/content.js?v=bcbee9f2"></script>
-<script src="js/deck.js?v=dedbd2f8"></script>
+<!-- ── Analytics ───────────────────────────────────────────────────────────
+     GoatCounter — cookieless, ~3.5 KB, no consent banner needed under
+     UK PECR/GDPR because it sets no cookies and stores no personal data.
+
+     SETUP: register the site at https://www.goatcounter.com, then put your
+     code below — the "xxxx" in xxxx.goatcounter.com. While GC_CODE is empty
+     nothing loads and __track() is a no-op, so the deck runs unchanged.
+
+     Slide and card views are sent as EVENTS, not pageviews, so they stay in
+     GoatCounter's Events tab and never inflate the visit count. Each is
+     counted once per page load — the question worth answering is "what share
+     of visitors reached this slide", not how often someone swiped back.
+--------------------------------------------------------------------------- -->
+<script>
+(function () {
+  var GC_CODE = "magicman12";   /* <-- your GoatCounter code goes here */
+
+  var pending = [], ready = false, seen = {};
+
+  function send(path, title) {
+    try {
+      window.goatcounter.count({ path: path, title: title || path, event: true });
+    } catch (e) { /* analytics must never break the deck */ }
+  }
+
+  /* Deduped per page load, and safe to call before the async script lands —
+     early calls queue and flush on load, so the first slide is never lost. */
+  window.__track = function (path, title) {
+    if (!GC_CODE || !path || seen[path]) return;
+    seen[path] = 1;
+    if (ready) send(path, title);
+    else if (pending.length < 60) pending.push([path, title]);
+  };
+
+  if (!GC_CODE) return;
+
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.setAttribute("data-goatcounter", "https://" + GC_CODE + ".goatcounter.com/count");
+  s.onload = function () {
+    ready = true;
+    for (var i = 0; i < pending.length; i++) send(pending[i][0], pending[i][1]);
+    pending.length = 0;
+  };
+  document.head.appendChild(s);
+})();
+</script>
+
+<script src="data/content.js?v=d60b9853"></script>
+<script src="js/deck.js?v=32dff05f"></script>
 <!-- three.js is 654 KB — 85% of the payload — and the deck is fully usable
      without it (the CSS veil is a complete fallback). Load it after the
      content has painted, then attach the atmosphere. -->
