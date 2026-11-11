@@ -204,6 +204,16 @@
       ? c.body.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("")
       : "<p>" + esc(c.teaser || "") + "</p>";
 
+    if (c.video && c.video.src) {
+      var poster = c.video.poster ? ' poster="' + esc(c.video.poster) + '"' : "";
+      body += '<figure class="modal-media">' +
+        '<video controls preload="metadata" playsinline' + poster +
+        ' style="width:100%;height:auto;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:#000">' +
+          '<source src="' + esc(c.video.src) + '" type="' + esc(c.video.type || "video/mp4") + '">' +
+        "</video>" +
+      "</figure>";
+    }
+
     if (c.takeaway) {
       body += '<div class="modal-take"><b>So what</b><span>' + esc(c.takeaway) + "</span></div>";
     }

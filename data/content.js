@@ -223,6 +223,24 @@ window.DECK = {
       lede: "What changes when the output is a folder, not an answer — plus the five-day deep dive.",
       cards: [
         {
+          meta: "Nov 2026 · video",
+          title: "Copilot Cowork — Microsoft Explainer (song version)",
+          teaser: "I turned the Cowork story into a short explainer video so people can get the shape of it quickly.",
+          body: [
+            "I made this as a compact walkthrough of what Cowork is doing in practice — where it helps, and where " +
+            "I still keep a human check in the loop.",
+            "It's the same field-note angle as the rest of this slide, just in video form for people who prefer a " +
+            "two-minute pass before digging into the longer posts.",
+          ],
+          video: {
+            src: "assets/video/cowork-microsoft-explainer-song.mp4",
+            type: "video/mp4",
+          },
+          takeaway: "Useful for first pass context; the detailed operating notes are still in the cards below.",
+          tags: ["Cowork", "Video"],
+          link: { href: "assets/video/cowork-microsoft-explainer-song.mp4", label: "Open video file" },
+        },
+        {
           meta: "Aug 2026",
           title: "Agentic sessions produce artefacts, not transcripts",
           teaser: "Which quietly moves the bottleneck from generation to review.",
