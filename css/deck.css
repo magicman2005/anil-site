@@ -218,6 +218,7 @@ button { font: inherit; color: inherit; }
 
 .home-copy .s-title { font-size: clamp(34px, 5vw, 68px); font-weight: 680; }
 .home-copy .s-lede { font-size: clamp(15px, 1.3vw, 19px); max-width: 44ch; }
+.home-copy { display: flex; flex-direction: column; min-height: min(68vh, 640px); }
 
 /* identity strip — portrait, name, role */
 .ident {
@@ -253,6 +254,56 @@ button { font: inherit; color: inherit; }
   font-family: var(--mono); font-size: 10px;
   border: 1px solid var(--stroke-2); border-bottom-width: 2px; border-radius: var(--r-sm);
   padding: 2px 6px; color: var(--fg-2); background: rgba(255,255,255,.05);
+}
+
+.home-banner {
+  position: absolute;
+  left: var(--pad);
+  right: var(--pad);
+  bottom: calc(var(--rail-h) + 8px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--accent-soft), rgba(255,255,255,.03));
+  box-shadow: var(--sh8);
+  text-decoration: none;
+  color: var(--fg);
+  overflow: hidden;
+  transition: transform var(--d-gentle) var(--c-ease), border-color var(--d-gentle) var(--c-ease), box-shadow var(--d-gentle) var(--c-ease);
+}
+.home-banner:hover { transform: translateY(-1px); border-color: hsl(var(--hue) 92% 66% / .56); box-shadow: var(--sh16); }
+.home-banner-kicker {
+  font-family: var(--mono);
+  font-size: var(--f-caption2);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.home-banner-text {
+  font-size: clamp(14px, 1.08vw, 16px);
+  line-height: 1.4;
+}
+.home-banner-track {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+}
+.home-banner-track span {
+  display: inline-block;
+  padding-left: 100%;
+  font-size: clamp(13px, .95vw, 15px);
+  letter-spacing: .01em;
+  animation: homeTicker 18s linear infinite;
+}
+.home-banner:hover .home-banner-track span { animation-play-state: paused; }
+@keyframes homeTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
 /* ── card grids ──────────────────────────────────────────── */
@@ -638,6 +689,13 @@ html.stack .rail { position: sticky; }
 html.stack .arrows, html.stack .counter { display: none; }
 html.stack .dots { margin: 0 auto; }
 html.stack .home-hint { display: none; }
+html.stack .home-banner {
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin-top: 6px;
+}
 html.stack .slide[data-kind="statement"],
 html.stack .slide[data-kind="connect"] { text-align: left; justify-items: start; }
 html.stack .slide[data-kind="statement"] .s-lede,
@@ -683,6 +741,7 @@ html.stack .brand-txt small { display: none; }
   .slide[data-kind="home"] .s-title { font-size: clamp(28px, 4.6vw, 44px); }
   .slide[data-kind="home"] .home-hint { display: none; }
   .ident { margin-bottom: 14px; }
+  .home-banner-kicker { display: none; }
   .cards[data-n="5"], .cards[data-n="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cards[data-n="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cards[data-n="4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }

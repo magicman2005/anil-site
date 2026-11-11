@@ -52,6 +52,11 @@ window.DECK = {
         "I work with customers on the art of the possible with Copilot and agents — then write " +
         "down the part that isn't in the deck: what worked, what broke, and what the demo " +
         "quietly skipped.",
+      banner: {
+        kicker: "Event",
+        text: "Microsoft Ignite · 17–20 November 2026",
+        href: "https://ignite.microsoft.com/en-US/home",
+      },
       cards: [
         {
           meta: "01",

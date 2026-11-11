@@ -63,6 +63,16 @@
 
     if (s.kind === "home") {
       var pr = D.profile;
+      var bannerText = esc(s.banner && s.banner.text ? s.banner.text : "");
+      var homeBanner = s.banner
+        ? '<a class="home-banner" href="' + esc(s.banner.href || "#") + '" target="_blank" rel="noopener" aria-label="' + bannerText + '">' +
+            '<span class="home-banner-kicker">' + esc(s.banner.kicker || "") + '</span>' +
+            '<span class="home-banner-track" aria-hidden="true"><span>' +
+              bannerText + " \u2022 " + bannerText + " \u2022 " + bannerText +
+            "</span></span>" +
+            '<span class="sr">' + bannerText + "</span>" +
+          "</a>"
+        : "";
       var ident = s.identity
         ? '<div class="ident">' +
             (pr.portrait
@@ -88,7 +98,8 @@
         '</div>' +
         '<div class="cards" data-n="' + s.cards.length + '">' +
           s.cards.map(function (c, ci) { return cardHTML(c, ci, s.hue); }).join("") +
-        '</div>';
+        '</div>' +
+        homeBanner;
 
     } else if (s.kind === "statement") {
       inner = headHTML(s) +
