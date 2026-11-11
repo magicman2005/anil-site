@@ -35,6 +35,7 @@
 
   function cardHTML(c, i, slideHue) {
     var hue = c.hue == null ? slideHue : c.hue;
+    var badge = c.badge ? '<span class="c-badge">' + esc(c.badge) + "</span>" : "";
     var label = c.go ? "Open"
       : (c.parts && c.parts.length) ? c.parts.length + " parts"
       : (c.link && /^https?:\/\//i.test(c.link.href)) ? "LinkedIn"
@@ -42,6 +43,7 @@
     return '' +
       '<button class="card" type="button" style="--c-hue:' + hue + '" ' +
         'data-card="' + i + '" aria-haspopup="dialog">' +
+        badge +
         '<span class="c-meta">' + esc(c.meta || "") + '</span>' +
         '<span class="c-title">' + esc(c.title) + '</span>' +
         '<span class="c-teaser">' + esc(c.teaser || "") + '</span>' +

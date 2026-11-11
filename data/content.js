@@ -126,6 +126,21 @@ window.DECK = {
           go: "posts",
           hue: 160,
         },
+        {
+          meta: "06",
+          badge: "NEW",
+          title: "New video: Copilot Cowork in 2 minutes",
+          teaser: "A short visual walkthrough of where Cowork helps most, and where human oversight still matters.",
+          body: [
+            "I've created this short video to provide a practical overview of Microsoft Copilot Cowork, " +
+            "highlighting where it delivers value and where human oversight remains important.",
+            "It complements the insights shared throughout this slide, offering a concise, two-minute introduction " +
+            "for those who prefer a visual walkthrough before exploring the more detailed content.",
+          ],
+          takeaway: "Open the Cowork slide and play the video card for the full walkthrough.",
+          go: "cowork",
+          hue: 186,
+        },
       ],
     },
 
