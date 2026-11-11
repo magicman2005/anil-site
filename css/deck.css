@@ -300,6 +300,16 @@ button { font: inherit; color: inherit; }
   letter-spacing: .01em;
   animation: homeTicker 18s linear infinite;
 }
+.home-banner-url {
+  flex: none;
+  font-family: var(--mono);
+  font-size: var(--f-caption2);
+  color: var(--fg-2);
+  border: 1px solid var(--stroke-2);
+  border-radius: var(--r-circ);
+  padding: 4px 10px;
+  background: rgba(255,255,255,.05);
+}
 .home-banner:hover .home-banner-track span { animation-play-state: paused; }
 @keyframes homeTicker {
   from { transform: translateX(0); }

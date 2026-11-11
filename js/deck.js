@@ -64,12 +64,18 @@
     if (s.kind === "home") {
       var pr = D.profile;
       var bannerText = esc(s.banner && s.banner.text ? s.banner.text : "");
+      var bannerUrlLabel = esc(
+        s.banner && s.banner.urlLabel
+          ? s.banner.urlLabel
+          : (s.banner && s.banner.href ? s.banner.href.replace(/^https?:\/\//i, "") : "")
+      );
       var homeBanner = s.banner
         ? '<a class="home-banner" href="' + esc(s.banner.href || "#") + '" target="_blank" rel="noopener" aria-label="' + bannerText + '">' +
             '<span class="home-banner-kicker">' + esc(s.banner.kicker || "") + '</span>' +
             '<span class="home-banner-track" aria-hidden="true"><span>' +
               bannerText + " \u2022 " + bannerText + " \u2022 " + bannerText +
             "</span></span>" +
+            (bannerUrlLabel ? '<span class="home-banner-url">' + bannerUrlLabel + "</span>" : "") +
             '<span class="sr">' + bannerText + "</span>" +
           "</a>"
         : "";

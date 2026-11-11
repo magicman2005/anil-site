@@ -56,6 +56,7 @@ window.DECK = {
         kicker: "Event",
         text: "Microsoft Ignite · 17–20 November 2026",
         href: "https://ignite.microsoft.com/en-US/home",
+        urlLabel: "ignite.microsoft.com/en-US/home",
       },
       cards: [
         {
