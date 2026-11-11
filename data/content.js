@@ -89,16 +89,16 @@ window.DECK = {
         },
         {
           meta: "03",
-          title: "Microsoft Scout",
-          teaser: "When the unit of automation moves from a prompt to a recurring job.",
+          title: "Microsoft Autopilot",
+          teaser: "Your digital teammate for recurring work that carries on without waiting for a prompt.",
           body: [
-            "An agent with real tools on my desktop — files, shell, browser, Graph — stopped being a better " +
-            "chat window and started being a scheduled worker.",
-            "What it asks of you borrows far more from scheduled jobs than from prompting: " +
-            "stable inputs, repeatable output, and a sensible failure mode.",
+            "Autopilot, previously called Scout, is the point where this stops being a chat experience and starts " +
+            "being a digital teammate that can run recurring work on its own.",
+            "You give it a name, a role and a goal, then it keeps moving in the background — watching channels, " +
+            "following threads, and picking work back up days later without me restarting it.",
           ],
-          takeaway: "Durable skills beat clever prompts. I stopped retyping my context and the gains started compounding.",
-          go: "scout",
+          takeaway: "I set the objective and boundaries; Autopilot does the running while keeping me informed.",
+          go: "autopilot",
           hue: 28,
         },
         {
@@ -298,43 +298,42 @@ window.DECK = {
 
     /* ── 3 ───────────────────────────────────────────────── */
     {
-      id: "scout",
+      id: "autopilot",
       kind: "cards",
-      label: "Scout",
+      label: "Autopilot",
       hue: 28,
       scene: "ring",
       kicker: "Field notes",
-      title: "Microsoft Scout",
-      lede: "Desktop agents, durable skills, and unattended work.",
+      title: "Microsoft Autopilot",
+      lede: "A cloud-hosted digital teammate for unattended work, with governance built in.",
       cards: [
         {
-          meta: "Aug 2026",
-          title: "The unit of automation moves from 'prompt' to 'recurring job'",
-          teaser: "Not 'what can I ask it' but 'what should it do at 7am without me'.",
+          meta: "What it is",
+          title: "Autopilot runs the work while you're focused elsewhere",
+          teaser: "Give it a name, a role and a goal, then it continues without waiting for the next prompt.",
           body: [
-            "Once an agent sits on my desktop with real tools — files, shell, browser, Graph — the interesting " +
-            "question stopped being 'what can I ask it' and became 'what should it do every morning at seven " +
-            "without me'.",
-            "Inbox triage, account refreshes, dashboard rebuilds. That's a genuinely different exercise " +
-            "from prompting, and it borrows far more from scheduled jobs than from chat.",
+            "Autopilot, previously called Scout, works as a digital teammate rather than a one-turn assistant. " +
+            "It can watch channels, follow up threads, run recurring work and pick up projects days later " +
+            "without waiting for me to prompt it again.",
+            "The practical difference is continuity. It keeps moving while I'm in other meetings or asleep, " +
+            "so recurring work doesn't depend on me being online at the right moment.",
           ],
-          takeaway:
-            "Unattended runs need explicit inputs, repeatable output and a sensible failure mode when a source is missing. That is a different discipline from prompting.",
-          tags: ["Automation", "Design"],
+          takeaway: "I use it for continuity: I define the objective once, and the execution keeps running.",
+          tags: ["Autopilot", "Automation"],
         },
         {
-          meta: "Jul 2026",
-          title: "Skills beat prompts, because context shouldn't be retyped",
-          teaser: "Encode it once and a capable assistant becomes one that's actually yours.",
+          meta: "In practice",
+          title: "It can own an end-to-end process, not just one task",
+          teaser: "For example: planning and running supplier review cycles, including prep, meetings and follow-ups.",
           body: [
-            "Re-explaining how I work at the start of every session is a tax I was paying forever. Encoding it " +
-            "once — folder conventions, tone, approval steps, the people who matter — changed the character " +
-            "of the thing entirely.",
-            "The gains compound in a way single prompts never do, which is exactly why they deserve the same " +
-            "treatment as code: versioned, reviewed, and improved when they're wrong.",
+            "I've used this pattern for work like supplier reviews: creating the schedule and workback plan, " +
+            "handling meeting prep, running follow-ups, and reaching out to stakeholders for status updates.",
+            "It lives inside the tenant with its own identity, memory, computer and workspace, and shows up in " +
+            "Teams, Outlook, chats, channels and documents. That means it works where people already work, " +
+            "with permissions, audit and governance behind it.",
           ],
-          takeaway: "I write the skill the second time I explain something, and version it like code, because it is code.",
-          tags: ["Skills", "Practice"],
+          takeaway: "I set the boundaries and oversight model; Autopilot handles the day-to-day execution.",
+          tags: ["Microsoft IQ", "Governance"],
         },
       ],
     },
