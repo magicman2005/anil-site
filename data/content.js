@@ -224,19 +224,18 @@ window.DECK = {
       cards: [
         {
           meta: "Nov 2026 · video",
-          title: "Copilot Cowork — Microsoft Explainer (song version)",
-          teaser: "I turned the Cowork story into a short explainer video so people can get the shape of it quickly.",
+          title: "Copilot Cowork",
+          teaser: "A practical two-minute overview of where Cowork delivers value and where human oversight still matters.",
           body: [
-            "I made this as a compact walkthrough of what Cowork is doing in practice — where it helps, and where " +
-            "I still keep a human check in the loop.",
-            "It's the same field-note angle as the rest of this slide, just in video form for people who prefer a " +
-            "two-minute pass before digging into the longer posts.",
+            "I've created this short video to provide a practical overview of Microsoft Copilot Cowork, highlighting " +
+            "where it delivers value and where human oversight remains important.",
+            "It complements the insights shared throughout this slide, offering a concise, two-minute introduction " +
+            "for those who prefer a visual walkthrough before exploring the more detailed content.",
           ],
           video: {
             src: "assets/video/cowork-microsoft-explainer-song.mp4",
             type: "video/mp4",
           },
-          takeaway: "Useful for first pass context; the detailed operating notes are still in the cards below.",
           tags: ["Cowork", "Video"],
           link: { href: "assets/video/cowork-microsoft-explainer-song.mp4", label: "Open video file" },
         },
