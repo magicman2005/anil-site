@@ -137,8 +137,12 @@ window.DECK = {
             "It complements the insights shared throughout this slide, offering a concise, two-minute introduction " +
             "for those who prefer a visual walkthrough before exploring the more detailed content.",
           ],
-          takeaway: "Open the Cowork slide and play the video card for the full walkthrough.",
-          go: "cowork",
+          video: {
+            src: "assets/video/cowork-microsoft-explainer-song.mp4",
+            type: "video/mp4",
+          },
+          takeaway: "Press play here for the full walkthrough.",
+          link: { href: "assets/video/cowork-microsoft-explainer-song.mp4", label: "Open video file" },
           hue: 186,
         },
       ],
