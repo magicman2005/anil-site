@@ -412,6 +412,23 @@ window.DECK = {
       --------------------------------------------------------------- */
       cards: [
         {
+          meta: "10 Nov 2026 · Field Notes",
+          title: "Why Cowork rollouts stall after week two",
+          teaser: "Most rollouts do not stall because the technology is difficult. They stall because the operating rhythm disappears after launch week.",
+          body: [
+            "In this Field Notes piece I set out the pattern I keep seeing: week one looks strong, then week two " +
+            "arrives, normal pressure returns, and the rollout drifts from real work change into optional experimentation.",
+            "The programmes that hold momentum treat Cowork as an operating model from day one, not a one-off " +
+            "enablement event. The practical sequence is measurable real work, reusable skills, weekly rhythm, " +
+            "and explicit baseline controls before scale.",
+            "If the rollout feels slower than expected, I would not begin by changing tooling. I would check " +
+            "whether that rhythm exists.",
+          ],
+          takeaway: "If I had to reduce this to one line: real work, reusable skills, weekly rhythm.",
+          tags: ["Cowork", "Field Notes", "Operating model"],
+          link: { href: "https://www.linkedin.com/pulse/field-notes-why-cowork-rollouts-stall-after-week-two-how-anil-madhok-st7ne/", label: "Read on LinkedIn" },
+        },
+        {
           meta: "1 Sep 2026 · Field Notes",
           title: "What actually stalls a Copilot rollout",
           teaser: "The first issue of Field Notes. Most rollouts don't fail — they quietly stop, and nobody notices in the moment.",
@@ -617,20 +634,6 @@ window.DECK = {
           tags: ["Milestones", "Adoption at scale"],
           stat: "216 reactions · 70 comments",
           link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7354479208389087233/", label: "Read on LinkedIn" },
-        },
-        {
-          meta: "15 Jul 2025",
-          title: "Presenting the Barclays Microsoft journey at UK FY26 kick-off",
-          teaser: "Years of partnership, presented to UK leadership and the whole UK & Ireland business.",
-          body: [
-            "As part of UK FY26 kick-off, I and the wider Barclays team presented the Barclays Microsoft " +
-            "journey — to UK leadership and to the whole of the UK and Ireland business.",
-            "Thanks to the Barclays team for the trust and the relationship that let us deliver 'moments that " +
-            "matter' throughout the years.",
-          ],
-          tags: ["Financial Services", "Partnership"],
-          stat: "185 reactions · 4 reposts",
-          link: { href: "https://www.linkedin.com/feed/update/urn:li:activity:7350898127198949377/", label: "Read on LinkedIn" },
         },
       ],
     },
